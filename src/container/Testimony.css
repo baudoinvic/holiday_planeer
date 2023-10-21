@@ -1,0 +1,148 @@
+.testimonial-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    margin-top: 40%;
+
+}
+
+.testimonial-content {
+    display: flex;
+    align-items: center;
+    max-width: 830px;
+    text-align: center;
+  }
+  
+  .testimonial-image {
+    width: 240px; 
+    margin-right: 90px; 
+  }
+  
+  .testimonial-box {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Adjust the text alignment as needed */
+    flex-grow: 1; /* Allows the box to take up remaining available width */
+  }
+  
+  .stars-icons {
+    display: flex;
+    justify-content: left;
+    margin: 10px 0;
+  }
+  
+  .star-icon {
+    font-size: 24px;
+    color: #C29D59;
+ 
+  }
+  
+  .testimonial-slide {
+    font-size: 20px;
+    line-height: 1.4;
+
+  }
+  
+  .dots-icons {
+    display: flex;
+    justify-content: left;
+    margin: 10px 0;
+  }
+  
+  .dot-icon {
+    font-size: 24px;
+    color: #C29D59;
+  }
+
+   /*images column*/
+
+   .klab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center content vertically in the viewport */
+  }
+  
+  .techup {
+    display: flex;
+    flex-direction: row; /* Place children in a row (horizontal) */
+  }
+  
+  .skills {
+    flex: 1; /* Distribute available space equally between columns */
+    text-align: center; /* Center content horizontally within columns */
+  }
+  
+  img {
+    width: 100%; 
+    height: auto; 
+  }
+  
+  /*planner*/
+  
+   .planner-hover{
+     display: flex;
+     padding: 20px;
+   }
+
+   .planer-image{
+   
+     width: 65%;
+     height: auto;
+    margin-top: 30px;
+    margin-left: 10%;
+     margin-right: 10%;
+    object-fit: cover;
+   }
+    
+   .planner-column{
+    padding: 10px;
+   }
+
+    .planner-column h3{
+      margin-top: -6rem;
+      font-size: 20px;
+      color: white;
+      text-align: left;
+    
+    }
+
+  /*hovering*/
+
+   .planner-column img {
+      height: auto;
+      transition: transform 0.3s;
+      
+    }
+    .planner-column:hover img {
+      transform: scale(1.1);
+    }
+
+ /*full last*/
+  
+ .the-last-one{
+   display: flex;
+   margin-right: 10%;
+   margin-left: 5%;
+   padding: 10px;
+  
+ }
+
+  .full-column{
+    padding: 15px;
+  }
+
+
+
+ .full-column img{
+    width: 300px;
+    height: 200px;
+    transition: transform 0.3s;
+ }
+
+ .full-column:hover img {
+  transform: scale(1.1);
+}

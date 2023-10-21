@@ -1,0 +1,258 @@
+.Tourlist-image {
+  background-image: url("https://html.geekcodelab.com/holiday-planners/assets/images/contact-banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 580px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/*responsiveness*/
+@media (max-width: 768px) {
+  .Contact-us-image {
+    height: 400px;
+  }
+}
+
+.h1-tourlist{
+    font-size: 60px;
+
+}
+
+
+ /*form */
+
+ .contact-container {
+    display: flex;
+    flex-direction: column;   
+}
+.ct-top{
+    background-image: url(../assets/cal.jpg);
+    background-size:cover;
+    background-attachment:fixed;
+    height: 500px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ct-top h1{
+    color: white;
+    font-weight: 900;
+    font-size: 70px;
+    margin-top: 25%;
+}
+
+.ct-center {
+background-color: rgb(255,255,255);
+display: flex;
+flex-direction: row;
+justify-content:space-between;
+}
+
+
+
+form{
+    background-color: rgb(250, 250, 255);
+    margin-top: 50px;
+    margin-left: 60px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(250, 250, 255);
+}
+
+.naem{
+    margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    
+}
+.naem input{
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid black; 
+    outline: none;
+}
+.tetx {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+}
+.tetx input{
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid black; 
+    outline: none;
+}
+.msg{
+    width: 615px;
+    height: 140px;
+    border-radius: 5px;
+    border: 1px solid black; 
+    resize: none;
+    text-indent: 50px;
+    padding-top: 20px;
+    outline: none;
+}
+
+form button{
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 150px;
+    border: 1px solid black; 
+    background-color: rgb(194,157,89);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+input{
+    text-indent: 20px;
+}
+
+::placeholder{
+    color: black;
+}
+
+.fname{
+    color: rgb(194,157,89);
+    position: absolute;
+    margin-left: 4px;
+    margin-top: 15px;
+}
+.mail{
+    color: rgb(194,157,89);
+    position: absolute;
+    margin-left: 319px;
+    margin-top: 16px;
+}
+
+.phn{
+    color: rgb(194,157,89);
+    position: absolute;
+    margin-left: 4px;
+    margin-top: 16px;
+}
+
+.srv{
+    color: rgb(194,157,89);
+    position: absolute;
+    margin-left: 319px;
+    margin-top: 16px;
+}
+
+.quest {
+    display: flex;
+    flex-direction: column;
+    margin-left: 36px;
+    padding-bottom: 50px;
+}
+.quest-top {
+    background-color: rgb(250, 250, 255);
+    margin-top: -50px;
+    padding: 35px;
+    margin-right: 95px;
+    box-shadow: 0 0 5px rgba(15, 1, 1, 0.9);
+}
+.quest-top-title {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.quest-top-title h1{
+color: black;
+font-weight: 800;
+font-size: 25px;
+margin-top: 5px;
+border-left: 3px solid rgb(194,157,89);
+padding-left: 5px;
+margin-bottom: 15px;
+}
+
+.lsst ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    color: rgb(155, 151, 151);
+}
+
+.arrw {
+   margin-right: 3px;
+   padding-top: 5px;
+   color: black;
+}
+
+.quest-t {
+    background-color: rgb(194,157,89);
+    margin-top: 35px;
+    padding: 35px;
+    margin-right: 95px;
+    box-shadow: 0 0 5px rgba(15, 1, 1, 0.9);
+}
+
+.quest-top-tite h1{
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+    margin-top: 5px;
+    border-left: 3px solid black;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
+
+.quest-top-tite p {
+    color: aliceblue;
+    margin-bottom: 20px;
+}
+
+.qste{
+   height: 45px;
+   width: 25px;
+   color: black;
+   margin-right: 12px;
+}
+.spd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+.ct-bottom-right{
+    width: 80%;
+}
+
+.maaap{
+ width: 100%;
+ height: 100%;
+}
+
+.ct-bottom{
+    display: flex;
+    flex-direction: row;
+}
+.ct-bottom-left{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(246,246,246);
+}
+.office{
+    height: 300px;
+    width: 300px;
+    margin-top: 15px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.office h1{
+    font-weight: 800;
+    font-size: 21px;
+}

@@ -1,0 +1,61 @@
+.image {
+  background-image: url("https://html.geekcodelab.com/holiday-planners/assets/images/banner-slide-3.jpg"); /* Replace 'your-image-url.jpg' with the URL of your image */
+  background-size: cover;
+  background-position: center center;
+  height: 580px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+
+  /*responsiveness*/
+
+    @media (max-width: 768px) {
+    height: 400px;
+  }
+}
+
+
+
+/*text*/
+
+.h1-title {
+  font-size: 50px;
+  font-weight: bold;
+  background-color: #c29d59;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 25%;
+
+  /*responsive*/
+
+   @media (max-width: 768px) {
+    font-size: 36px;
+  }
+
+}
+
+.highlight-text {
+  color: #0077ff;
+}
+
+.paragraph-text {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+  margin: auto;
+  width: 50px;
+  
+  /*responsive*/
+   @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+}

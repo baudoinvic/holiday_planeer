@@ -1,0 +1,150 @@
+/*navtech*/
+
+
+.nav-tech {
+  display: flex;
+  justify-content: space-between; 
+  /* background-color: #2b2b2b;
+  height: 90px; */
+  align-items: center;
+
+  /*responsiveness*/
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  
+  }
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  
+  /*responsive*/
+
+   @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+
+  /*responsive*/
+
+    @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+}
+
+.contact-icon {
+  font-size: 24px;
+  margin-right: 5px;
+  color: #c29d59;
+}
+
+.contact-text {
+  font-size: 16px;
+  color: white;
+}
+
+.nav-tech ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-tech li {
+  display: inline;
+  margin-right: 30px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+
+
+}
+
+/*navbar*/
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+
+  /*responsive*/
+
+   @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+.navBar .navButton button {
+  margin-left: 2rem;
+  color: var(--bg-white-500);
+  background-color: #c29d59;
+  color: white;
+
+  /*responsive*/
+
+   @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
+}
+
+
+.navBar .navButton .search-icon {
+  background-color: var(--bg-white-500);
+  color: var(--bg-black-900);
+  border-radius: 1200px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--bg-black-900);
+  width: 80px;
+
+  /*responsive*/
+
+    @media (max-width: 768px) {
+    width: 60px;
+  }
+
+}
+
+.navBar .navButton .humburger {
+  border-radius: 1200px;
+  border: 2px solid var(--skin-color);
+  size: large;
+  background-color: #c29d59;
+  width: 80px;
+
+  /*responsive*/
+    @media (max-width: 768px) {
+    width: 60px;
+  }
+}
+
+/*reserver*/
+
+.description {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+button {
+  width: 140px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #c29d59;
+  color: white;
+  border: solid 1px #c29d59;
+  cursor: pointer;
+}
+
+
+

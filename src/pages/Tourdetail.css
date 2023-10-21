@@ -1,0 +1,92 @@
+.tour-detail-image {
+  background-image: url("https://html.geekcodelab.com/holiday-planners/assets/images/tour-detail-banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 580px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.h1-tourdetail{
+  font-size: 90px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+  /*tour-details-content*/
+
+.tour-details-content {
+  margin-top: 10px;
+  display: flex;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.info-table {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-cell {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+
+.tour-description {
+  width: 80%;
+ color: #2B2B2B;
+}
+
+ .tour-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.tour-short {
+  flex: 1;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.info-list li {
+  margin-right: 20px;
+}
+
+.tour-price {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.price-circle {
+  background: #c29d59;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  margin-left: 30px;
+}

@@ -1,0 +1,430 @@
+.Tourlist-image {
+  background-image: url("https://html.geekcodelab.com/holiday-planners/assets/images/tour-banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 580px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/*responsiveness*/
+@media (max-width: 768px) {
+  .Contact-us-image {
+    height: 400px;
+  }
+}
+
+.h1-tourlist{
+    font-size: 60px;
+
+}
+
+
+  .tour-ct{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.tour-btm{
+    /* background-color: aliceblue; */
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.tour-right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sort-form {
+    margin-top: 20px;
+    /* margin-left: 50px; */
+    display: flex;
+    /* background-color: red; */
+    padding: 5px;
+}
+.sort-form p{
+    height: 43px;
+    width: 250px;
+    border: 1px solid gray ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    margin-top: -2px;
+}
+
+.sort-form select{
+    height: 43px;
+    width: 250px;
+    border: 1px solid gray ;
+    border-radius:0 ;
+    background-color: aliceblue;
+    outline: none;
+}
+
+
+
+.right-form{
+    margin-right: 40px;
+    margin-top: -60px;
+    padding-left: 56px;
+    box-shadow: 0 0 9px rgba(15, 1, 1, 0.9);
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.findd{
+    color: black;
+    font-weight: 900;
+    font-size: 20px;
+    border-left: 3px solid rgb(194,157,89);
+    padding-left: 7px;
+    margin-bottom: 15px;
+}
+
+.dra{
+    color: black;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.right-form input{
+    height: 43px;
+    width: 280px;
+    margin-bottom: 10px;
+}
+
+.right-form select{
+    height: 47px;
+    width: 285px;
+    margin-bottom: 10px;
+}
+
+.srch-f{
+    position: absolute;
+    color: rgb(194,157,89);
+    margin-top: 52px;
+    margin-left: 3px;
+   font-size: 20px;
+}
+
+.lct-f {
+    position: absolute;
+    color: rgb(194,157,89);
+    margin-top: 108px;
+    margin-left: 3px;
+   font-size: 20px;
+}
+
+.cld-f{
+    position: absolute;
+    color: rgb(194,157,89);
+    margin-top: 165px;
+    margin-left: 7px;
+   font-size: 20px;
+}
+.prix{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.prix input{
+    height: 43px;
+    width: 126px;
+}
+
+.min{
+    display: flex;
+    flex-direction: column;
+}
+
+.min label{
+    color: black;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.checkbox-item {
+    padding-left: 40px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+
+  
+input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    cursor: pointer;
+    /* margin-right: 10px; */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+
+.checkbox-item label{
+color: black;
+vertical-align: middle;
+}
+
+
+/* ---------------------------------- */
+
+
+.quest-topp {
+    background-color: rgb(246,246,246);
+    box-shadow: 0 0 5px rgba(15, 1, 1, 0.9);
+    margin-left: 60px;
+    margin-right: 40px;
+    margin-top: 38px;
+    padding: 30px;
+}
+.quest-top-titlee {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.quest-top-titlee h1{
+color: black;
+font-weight: 800;
+font-size: 25px;
+margin-top: 9px;
+border-left: 3px solid rgb(194,157,89);
+padding-left: 5px;
+margin-bottom: 15px;
+}
+
+.lssst ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    color: rgb(155, 151, 151);
+}
+
+.arrrw {
+   margin-right: 3px;
+   padding-top: 5px;
+   color: black;
+}
+
+
+/* ---------------------------------- */
+
+.questt-t {
+    background-color: rgb(194,157,89);
+    margin-top: 35px;
+    padding: 35px;
+    margin-right: 40px;
+    margin-left: 60px;
+    box-shadow: 0 0 5px rgba(15, 1, 1, 0.9);
+}
+
+.questt-top-tite h1{
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+    margin-top: 5px;
+    border-left: 3px solid black;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
+
+.questt-top-tite p {
+    color: aliceblue;
+    margin-bottom: 20px;
+}
+
+.qsste{
+   height: 45px;
+   width: 25px;
+   color: black;
+   margin-right: 12px;
+}
+.sppd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+
+/*===============  ============= TOUR LEFT  =============  =================*/
+
+
+/*===============  ============= TOUR LEFT  =============  =================*/
+
+
+/*===============  ============= TOUR LEFT  =============  =================*/
+
+
+.tour-left{ 
+    width: 60%;
+    /* background-color: rgba(35, 35, 222, 0.26); */
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+}
+
+.tourCards{
+    /* background-color: rgb(241, 63, 8); */
+    width: 100%;
+    height: 110rem;
+    /* margin: 10px auto; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 2rem; */
+    flex-wrap: wrap; 
+   
+  }
+  .tourCard{
+    background: #ffffff;
+    width: 48.5%;
+    height: 37rem;
+    box-shadow: 1px 1px 3px #858080;
+    display: flex;
+    flex-direction: column;
+  }
+  .tourCards img{
+    width: 100%;
+    height: 16rem;
+  }
+  .country{
+    background-color: #C29D59;
+    position: relative;
+    top: -0.5rem;
+    left: 2rem;
+    width: 34%;
+    height: 3rem;
+    margin-top: -2rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .country1{
+    width: 44%;
+  }
+  
+  .cardDescription{
+    /* background-color: slateblue; */
+
+    width: 100%;
+    height: 19rem;
+    padding: 1rem;
+    border-left: 3px solid #C29D59;
+
+
+  }
+  .tourCards p{
+    font-size: 17px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    /* line-height: 1.5; */
+  }
+  .descri .descr{
+    color: #5e5a5a;
+    font-weight: lighter;
+  }
+  .time-size{
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 6rem;
+    height: 4rem;
+    padding-top: 2rem;
+    
+    border-top: 1px solid #e4d8d8da;
+    border-bottom: 1px solid #e4d8d8da
+  }
+  .duration{
+    /* background-color: red; */
+    /* width: 10rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .duration h3{
+    display: flex;
+
+  }
+  .groupSize{ 
+    /* background-color: red; */
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+  }
+  .groupSize h3{
+    display: flex;
+  }
+  .smallp{
+    color: grey;
+    font-size: 11px!important;
+    margin-left: 8px;
+  }
+  .footcards{
+    /* background-color: violet; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 4rem;
+    margin-top: 20px;
+    padding: 10px;
+  }
+  .butCard{
+    background-color: #C29D59 ;
+    border: none;
+    outline: none;
+    width: 7rem;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    margin-top: -20px;
+    margin-right: 20px;
+  }
+  .butCard:hover{
+    background-color: #000;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .cardcons{
+    color: #C29D59;
+    font-size: 1.5rem;
+    margin-right: 5px;
+    /* padding-top: 10px; */
+  }
+
+  .footcards p {
+    margin-top: 12px;
+  }

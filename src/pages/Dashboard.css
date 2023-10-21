@@ -1,0 +1,207 @@
+.dashboard{
+    display: flex;
+}
+
+.sidebar {
+  color: #2B2B2B;
+  width: 250px;
+  height: 690px;
+  padding: 20px;
+  /* margin-top: 3rem; */
+  background-color: #f2f2f2;
+}
+
+.sidebar-left-side li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-left-side li i {
+  margin-right: 10px;
+  font-size: 20px;
+
+}
+
+.sidebar-left-side li a {
+  text-decoration: none;
+  color: black;
+  padding: 15px;
+  font-size: 17px;
+}
+
+.sidebar-left-side img{
+ width: 50px;
+}
+
+.sidebar-left-side h3{
+    margin-top: -2.5rem;
+    margin-left: 4rem;
+    font-size: 30px;
+}
+
+
+ /*right side*/
+
+
+ .sidebar-right-side{
+    display: flex;
+    margin-left: 8rem;
+  
+   
+ }
+
+  .total-booking{
+    padding: 40px;
+  
+   
+  }
+
+  .total-booking span{
+     padding: 60px;
+     font-size: 25px;
+   
+  }
+
+
+
+ /*main*/
+
+
+  main {
+	width: 100%;
+	padding: 24px 20px 20px 20px;
+}
+main .title {
+	font-size: 28px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	color: #2B2B2B;
+}
+  main .breadcrumbs {
+	display: flex;
+	grid-gap: 6px;
+	
+}
+main .breadcrumbs li,
+main .breadcrumbs li a {
+	font-size: 14px;
+	text-decoration: none;
+	color: #2B2B2B;
+}
+main .breadcrumbs li a {
+	color: var(--blue);
+}
+
+
+
+main .info-data {
+	margin-top: 46px;
+	/* display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+	/* grid-gap: 20px; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+main .info-data .card {
+	padding: 20px;
+	border-radius: 10px;
+	background: var(--light);
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+  width: 300px
+}
+
+main .card .head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+
+
+
+
+
+
+main .card .progress {
+	display: flex;
+	margin-top: 24px;
+	height: 10px;
+	width: 100%;
+	border-radius: 10px;
+	background: var(--grey);
+	overflow-y: hidden;
+	position: relative;
+	margin-bottom: 4px;
+}
+main .card .progress::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: var(--blue);
+	width: var(--value);
+}
+main .card .label {
+	font-size: 14px;
+	font-weight: 700;
+}
+main .data {
+	display: flex;
+	grid-gap: 20px;
+	margin-top: 20px;
+	flex-wrap: wrap;
+}
+
+main .data .content-data {
+	flex-grow: 1;
+	flex-basis: 400px;
+	padding: 20px;
+	background: var(--light);
+	border-radius: 10px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+}
+
+main .content-data .head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+
+}
+main .content-data .head h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+
+
+
+main .content-data .chart {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+
+
+
+
+
+
+/*-------*/
+
+.sidebar-right-side{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+ 

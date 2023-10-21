@@ -1,0 +1,55 @@
+/* Model.css */
+.modal-wrapper {
+  /* top: 0;
+  left: 0; */
+  inset: 0;
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  background-color: #000;
+  z-index: 11111111;
+  color: #fff;
+}
+
+.modal-panel {
+  background-color: #000;
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+}
+
+.modal-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 22px;
+
+}
+
+.modal-panel li {
+  margin-bottom: 10px;
+}
+
+.modal-panel a {
+  text-decoration: none;
+  color: white;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  text-align: right;
+  background: transparent;
+}
+
+.close-icon {
+  cursor: pointer;
+  color: #333;
+  font-size: 24px;
+  color: white;
+}

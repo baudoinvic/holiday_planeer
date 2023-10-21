@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    
+  }
+  
+  .text-column {
+    flex: 1;
+  }
+  
+  .button-column {
+    flex-wrap: wrap ;
+    align-items: flex-end; 
+    margin-right: 10%; 
+  }
+  
+  .preview button {
+    margin-bottom: 10px; /* Add spacing between the buttons */
+  }
+  
+   .intro{
+    margin-left: 10%;
+   }
+
+   .intro h3,h1{
+     margin-left: 5%;
+   }
+
+   

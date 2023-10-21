@@ -1,0 +1,88 @@
+.images-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-right: 25%;
+  
+  }
+  
+  .images-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+     width: 70%;
+    height: 200px;
+    animation: slide 10s linear infinite;
+   
+  }
+  
+  .image-item {
+    flex: 0 0 calc(33.33% - 20px); 
+    text-align: center; 
+    margin: 10px; 
+  
+  }
+
+
+  .image-item h4{
+    margin: auto;
+    color: #2B2B2B;
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  .image-item p{
+    color: #2B2B2B;
+    text-align: left;
+  }
+
+  .image-item h2{
+    /* color: #2B2B2B; */
+    text-align: left;
+  }
+
+  
+
+   .special-button{
+    margin-left: 50px;
+   }
+  
+  img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+  }
+  
+
+    /*icons*/
+
+    .icon-column {
+      display: flex;
+      flex-direction: column;
+     color: #C29D59;
+      height: 30px; /* Adjust the height as needed */
+    }
+    
+
+   /*animation*/
+
+   @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(10%); /* Slide a bit to the right */
+    }
+    50% {
+      transform: translateX(0); /* Return to the initial position */
+    }
+    75% {
+      transform: translateX(-10%); /* Slide a bit to the left */
+    }
+    100% {
+      transform: translateX(0); /* Return to the initial position */
+    }
+  }
+  
+
+    
+
+ 
