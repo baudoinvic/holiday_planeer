@@ -14,7 +14,12 @@ import Model from "./container/Model";
 import TourList from "./pages/TourList";
 import Tourdetail from "./pages/Tourdetail";
 import Contact from "./pages/Contact";
-import Dashboard from "./pages/Dashboard";
+
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Users from "./pages/Dashboard/Users";
+import Tour from "./pages/Dashboard/Tour";
+
+
 
 const Layout = () => {
   const [login, SetLogin] = useState(false);
@@ -33,6 +38,9 @@ const Layout = () => {
     </>
   );
 };
+ 
+  
+
 const App = () => {
   return (
     <div>
@@ -48,9 +56,10 @@ const App = () => {
             <Route path="/Tourdetail" element={<Tourdetail />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
           </Route>
-          <Route path="/dashboard" element={<Dashboard />}>
-         {/* <Route path="dashboard/homepage" element={<Homepage />} />{" "} */}
 
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="Users" element={<Users />} />
+            <Route path="Tour" element={<Tour />} />
           </Route>
         </Routes>
       </BrowserRouter>

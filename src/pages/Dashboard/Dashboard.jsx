@@ -1,10 +1,14 @@
 import React from "react";
 import "./Dashboard.css";
-import img from "../assets/kotln.svg";
+// import img from "../assets/kotln.svg";
+import { Bar } from "react-chartjs-2";
+
 import { FaSignOutAlt } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import { Link, Outlet } from "react-router-dom";
+import { FaUsersCog, FaChartBar } from "react-icons/fa";
+import { PiAirplaneTiltFill } from "react-icons/pi";
 
 
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
@@ -20,46 +24,52 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 
+  
+
 
 const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="sidebar">
         <div className="sidebar-left-side">
-          <img src={img}></img>
-          <h3>Kleon</h3>
-          <li>
-            <FontAwesomeIcon icon={faTachometerAlt} />
-            <a href="#">Dashboard</a>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faHome} />
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faGlobe} />
-            <a style={{ color: "#c29d59" }} href="#">
+          {/* <img src={img}></img> */}
+          <img
+            style={{ width: "140px" }}
+            src="https://html.geekcodelab.com/holiday-planners/assets/images/logo.png"
+          ></img>
+     
+          <Link to="/dashboard">
+            <li>
+              <FontAwesomeIcon
+                style={{ color: "#c29d59" }}
+                icon={faTachometerAlt}
+              />
+              <a style={{ color: "#c29d59" }} href="#">
+                Dashboard
+              </a>
+            </li>
+          </Link>
+
+          <Link to="/dashboard/Tour">
+            <li>
+              <PiAirplaneTiltFill />
               Tour
-            </a>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faInfoCircle} />
-            <a href="#">Tour detail</a>
-          </li>
+            </li>
+          </Link>
+
           <li>
             <FontAwesomeIcon icon={faComments} />
-            <a href="#">Chat</a>
+            <a href="#">Booking</a>
           </li>
-          <li>
-            <FontAwesomeIcon icon={faCalendar} />
-            <a href="#">Calendar</a>
-          </li>
-          <h2 title="popular">popular places</h2>
-          <FontAwesomeIcon style={{ color: "red" }} icon={faCircle} />
-          <span style={{ marginLeft: "1rem" }}>Norway</span>
-          <br></br>
 
-          <FaSignOutAlt style={{ marginTop: "2rem" }} />
+          <Link to="/dashboard/Users">
+            <li>
+              <FaUsersCog />
+              Users
+            </li>
+          </Link>
+
+          <FaSignOutAlt style={{ marginTop: "20rem" }} />
           <span
             style={{ cursor: "pointer" }}
             onClick={() => navigate("/login")}
@@ -71,26 +81,18 @@ const Dashboard = () => {
 
       <div className="sidebar-right-side">
         <main>
-          <h1  class="title">Dashboard</h1>
-          <ul class="breadcrumbs">
-          
-              {/* <a href="#">Home</a> */}
-            
-            {/* <li class="divider">/</li> */}
-           
-              {/* <a href="#" class="active">
-                Dashboard
-            </a> */}
-
-          </ul>
+          <Outlet />
+          <h1 class="title">Dashboard</h1>
+          <ul class="breadcrumbs"></ul>
           <div class="info-data">
             <div style={{ backgroundColor: "ivory" }} class="card">
               <div class="head">
                 <div>
+                  
                   <h2>1500</h2>
                   <p>Traffic</p>
+               
                 </div>
-          
               </div>
               <span class="progress" data-value="40%"></span>
               <span class="label">40%</span>

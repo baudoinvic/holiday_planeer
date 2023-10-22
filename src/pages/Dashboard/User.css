@@ -1,0 +1,51 @@
+
+.add-user-btn{
+  display: flex;
+  float:right;
+  background-color: rgb(194, 157, 89);
+  justify-content: flex-end;
+  padding: 15px 15px;
+ 
+  margin-left: -20px;
+  margin-bottom: 50px;
+  color: white;
+  margin-top: -40px;
+}
+
+.user-container{
+  margin-top: 40px;
+}
+
+ .user-list {
+ 
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  
+}
+
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  border-bottom: 1px solid #ccc;
+}
+
+.user-headers {
+  font-weight: bold; 
+}
+
+.user-cell {
+  flex: 1;
+}
+
+.user-cell:last-child {
+  text-align: center; 
+}
+
+.action-icons {
+  display: flex;
+  gap: 10px;
+}
+
+  
