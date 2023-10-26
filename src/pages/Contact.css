@@ -256,3 +256,40 @@ margin-bottom: 15px;
     font-weight: 800;
     font-size: 21px;
 }
+
+ /*responsiveness*/
+
+    @media (max-width: 768px) {
+  .ct-center {
+    flex-direction: column;
+  }
+
+   .fside{
+    width: 50%;
+   }
+
+   .msg {
+     width: 300%;
+     height: 100px;
+   }
+     
+   .quest-top{
+    margin-top: 20px;
+    margin: auto;
+   }
+
+   .quest-t{
+    margin: auto;
+    margin-top: 20px;
+   }
+   
+
+   .naem input{
+    height: 20px;
+   }
+
+   .tetx input{
+    height: 20px;
+   }
+
+}

@@ -5,19 +5,21 @@
   background-color: rgb(194, 157, 89);
   justify-content: flex-end;
   padding: 15px 15px;
- 
   margin-left: -20px;
   margin-bottom: 50px;
   color: white;
-  margin-top: -40px;
+  margin-top: -5px;
+  cursor: pointer;
 }
 
 .user-container{
   margin-top: 40px;
+  width: 950px;
 }
 
  .user-list {
- 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;

@@ -146,3 +146,55 @@
  .full-column:hover img {
   transform: scale(1.1);
 }
+
+ /*responsiveness*/
+
+
+  @media (max-width: 768px) {
+  /* Testimonial */
+  .testimonial-container {
+    margin-top: 169rem;
+  }
+
+  .testimonial-content {
+    flex-direction: column;
+    text-align: center;
+  }
+ 
+   .testimonial-box{
+    margin-top: 30px;
+   }
+
+  
+    .intro h3{
+      margin-top: 10rem;
+    }
+
+  /* .testimonial-image {
+    margin-right: 0;
+  } */
+
+  /* Planner Section */
+  .techup {
+    flex-direction: column;
+  }
+
+  .planer-image {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .planner-column h3 {
+    margin-top: 0;
+  }
+
+  /* Full Last Section */
+  .the-last-one {
+    flex-direction: column;
+  }
+
+  .full-column {
+    margin-bottom: 20px;
+  }
+}

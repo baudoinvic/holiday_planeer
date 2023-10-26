@@ -16,9 +16,9 @@ const Login = () => {
     <>
       <div className="login-container">
         <div className="login-form">
-          <h2 className="login">Login</h2>
           {error && <p className="error-message">{error}</p>}
-          <form className="user-login"> 
+          <form className="user-login">
+            <h2 className="login">Login</h2>
             <div className="form-group">
               <label>Email</label>
               <input
@@ -36,7 +36,10 @@ const Login = () => {
               />
             </div>
 
-            <button className="button-form" onClick={()=>navigate("/Dashboard")}> 
+            <button
+              className="button-form"
+              onClick={() => navigate("/Dashboard")}
+            >
               Login
             </button>
 

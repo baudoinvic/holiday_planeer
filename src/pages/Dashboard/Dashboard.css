@@ -207,4 +207,16 @@ main .content-data .chart {
 
 
 
- 
+  /*responsive*/
+
+    @media (max-width: 768px) {
+  .dashboard {
+   display: flex;
+  }
+
+  .main{
+	margin-top: -30px;
+  }
+   
+
+}

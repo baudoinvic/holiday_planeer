@@ -25,6 +25,24 @@
 
    .intro h3,h1{
      margin-left: 5%;
+  
    }
-
+    
    
+   /*responsiveness*/
+
+      @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .button-column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+  }
+  .text-column{
+    margin-top: -5rem;
+  }
+}

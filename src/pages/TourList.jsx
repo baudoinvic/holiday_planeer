@@ -12,43 +12,12 @@
    import axios from 'axios';
    import React, { useState, useEffect } from "react";
    
-  
-
 
    const TourList = () => {
-
-     const [tours, setTours] = useState([]);
-     const [isLoading, setIsLoading] = useState(true);
-
-
-
-    const fetchTours = () => {
-      setIsLoading(true);
-      axios({
-        method: "GET",
-        url: "https://holiday-planner-4lnj.onrender.com/api/v1/tour",
-      })
-        .then((response) => {
-          setTours(response.data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error("An error occurred:", error);
-          setIsLoading(false);
-            console.log("Fetched Tourlist:", response.data);
-        });
-
-    }
-
-     useEffect(() =>{
-       fetchTours();
-     }, []);
-     
+      
      return (
        <div>
-         {/* {tours.map((item) => (
-           <TourList  name={item.destination} />
-         ))} */}
+        
 
          <div className="Tourlist">
            <div className="Tourlist-image">

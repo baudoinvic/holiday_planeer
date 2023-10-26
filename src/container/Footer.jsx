@@ -15,23 +15,20 @@ const Footer = () => {
                 src="https://html.geekcodelab.com/holiday-planners/assets/images/white-logo.png"
               ></img>
 
-              <p style={{fontSize: '20px',  width: "90%" }}>
+              <p style={{ fontSize: "20px", width: "90%" }}>
                 <b>Holiday Planners</b> sit amet consectetur adipisicing elit.
                 Perferendis sapiente tenetur officiis explicabo fugit, sit
                 mollitia eum atque excepturi quaerat autem.
                 <br></br>
-                <input style={{height: '50px', width: '300px'}}
+                <input
+                  style={{ height: "30px", width: "300px" }}
                   type="email"
                   class="form-input"
                   placeholder="Enter Your Email"
                   required=""
-                >
-                  </input>
-
-                   <br></br>
-
-                   <button style={{marginTop: '10px'}}>Submit</button>
-                
+                ></input>
+                <br></br>
+                <button style={{ marginTop: "10px" }}>Submit</button>
               </p>
             </div>
           </div>
@@ -60,14 +57,14 @@ const Footer = () => {
           </div>
 
           {/* Third Column: Contact Information */}
-          <div style={{marginLeft: '10%'}} className="col">
-           
+          <div className="some">
+            <div style={{ marginLeft: "10%" }} className="col">
               <h4>Need Help?</h4>
-               <hr></hr>
+              <hr></hr>
 
               <p>Call: +1-123-456-7890</p>
               <p>Email: info@example.com</p>
-            
+            </div>
           </div>
         </div>
       </div>

@@ -3,13 +3,19 @@ import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [location, setLoCation] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(""); // Added phoneNumber state
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // State to store user information
+  const [userInformation, setUserInformation] = useState(null);
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -24,42 +30,59 @@ const Signup = () => {
       data: {
         email: email,
         password: password,
-   
+        fullname: fullname,
+        location: location,
+        phoneNumber: phoneNumber, // Include phoneNumber in the data
       },
-    }).then((response) => {
-      console.log(response, "Response");
-      // navigate("/");
-      alert("user registered successfuly");
-      setIsLoading();
-
-      // Log registered email and password to the console
-      console.log("Registered Email:", email);
-      console.log("Registered Password:", password);
     })
+      .then((response) => {
+        console.log(response, "Response");
+        alert("User registered successfully");
+        setIsLoading(false);
 
-    .cath((error) => {
-      console.log(error);
-      alert("An error happened");
-     
-    });
+        // Save user information in state
+        setUserInformation({
+          email: email,
+          fullname: fullname,
+          location: location,
+          phoneNumber: phoneNumber,
+        });
 
-    
-       
+        // Log registered email, password, fullname, location, phoneNumber, and role to the console
+        console.log("Registered Email:", email);
+        console.log("Registered Password:", password);
+        console.log("Fullname:", fullname);
+        console.log("Location:", location);
+        console.log("Phone Number:", phoneNumber);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("An error happened");
+      });
   };
 
   return (
     <>
       <div className="login-container">
         <div className="login-form">
-          <h2>Signup</h2>
           {error && <p className="error-message">{error}</p>}
           <form>
+            <h2 style={{marginTop: '-15px'}}>Signup</h2>
+            <div className="form-group">
+              <label>Fullname</label>
+              <input
+                type="text"
+                value={fullname}
+            
+                onChange={(e) => setFullname(e.target.value)}
+              />
+            </div>
             <div className="form-group">
               <label>Email</label>
               <input
                 type="email"
                 value={email}
-                placeholder="enter your mail"
+             
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -68,10 +91,28 @@ const Signup = () => {
               <input
                 type="password"
                 value={password}
-                placeholder="enter 6 characters"
+            
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            <div className="form-group">
+              <label>Location</label>{" "}
+              {/* Corrected the label text to "Location" */}
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLoCation(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Phone Number</label>
+              <input
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+
             <button className="button-form" onClick={handleSignup}>
               Signup
             </button>

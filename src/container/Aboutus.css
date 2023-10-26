@@ -27,3 +27,23 @@
   margin: 10px 0;
   /* width: 70%; */
 }
+
+
+/*responsiveness*/
+
+  @media (max-width: 768px) {
+    .about-us-container {
+      flex-direction: column;
+      margin-left: 0;
+    }
+
+    .about-us-image {
+      width: 90%;
+    
+    }
+
+    .about-us-text {
+      width: 70%;
+      margin-left: 0;
+    }
+  }

@@ -16,6 +16,8 @@ import Tourdetail from "./pages/Tourdetail";
 import Contact from "./pages/Contact";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Dash from "./pages/Dash";
+
 import Users from "./pages/Dashboard/Users";
 import Tour from "./pages/Dashboard/Tour";
 
@@ -58,8 +60,11 @@ const App = () => {
           </Route>
 
           <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="" element={<Dash />} />
+            <Route path="Users" element={<Users />} />
             <Route path="Users" element={<Users />} />
             <Route path="Tour" element={<Tour />} />
+           
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,55 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Tour.css'
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
+import TourList from '../Tourlist';
+
 
 const Tour = () => {
+
+  
+//  const tourList = [
+  
+//    {
+
+//     id: 1,
+//     destination: 'Switzerland',
+//     duration: '7 days 8 hours',
+//     groupsize: '40+ people',
+//     price: '$100.00',
+
+//    }
+
+//  ]
+
+
+
+
+
   return (
-    <div className="table-component">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Destination</th>
-            <th>Amount</th>
-            <th>Names</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Rwanda Kigali</td>
-            <td>$1300</td>
-            <td>john@example.com</td>
-            <td>
-              <div className="action-icons">
-                <BsFillTrashFill style={{ color: "red" }} />
-                <BsFillPencilFill />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Congo DRC</td>
-            <td>$1200</td>
-            <td>mary@example.com</td>
-            <td>
-              <div className="action-icons">
-                <BsFillTrashFill style={{ color: "red" }} />
-                <BsFillPencilFill />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Burundi Bujumbura</td>
-            <td>$1000</td>
-            <td>july@example.com</td>
-            <td>
-              <div className="action-icons">
-                <BsFillTrashFill style={{ color: "red" }} />
-                <BsFillPencilFill />
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div>
+      <nav className="add-user-btn">Add Tour</nav>
+      <h1 class="title">TourList</h1>
+
+      <div className="user-container">
+        <div className="user-list">
+          <div className="user-row user-headers">
+            <div className="user-cell">Destination</div>
+            <div style={{ marginLeft: "15px" }} className="user-cell">
+              Duration
+            </div>
+            <div className="user-cell">Groupe size</div>
+            <div style={{ marginLeft: "40px" }} className="user-cell">
+              Price
+            </div>
+            <div style={{ marginRight: "10px" }} className="user-cell">
+              Action
+            </div>
+          </div>
+          
+        </div>
+      </div>
     </div>
   );
 }
