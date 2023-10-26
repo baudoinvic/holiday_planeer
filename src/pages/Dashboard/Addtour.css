@@ -1,0 +1,14 @@
+.add-tour {
+  width: 880px;
+  margin: 0 auto;
+  padding: 20px;
+  /* background-color: #f5f5f5; */
+  /* border: 1px solid #c29d59; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.adding-tour {
+  display: flex;
+  flex-direction: column;
+}

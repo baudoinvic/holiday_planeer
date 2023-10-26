@@ -20,6 +20,7 @@ import Dash from "./pages/Dash";
 
 import Users from "./pages/Dashboard/Users";
 import Tour from "./pages/Dashboard/Tour";
+import Addtour from "./pages/Dashboard/Addtour";
 
 
 
@@ -64,7 +65,7 @@ const App = () => {
             <Route path="Users" element={<Users />} />
             <Route path="Users" element={<Users />} />
             <Route path="Tour" element={<Tour />} />
-           
+            <Route path="Addtour" element={<Addtour />} />
           </Route>
         </Routes>
       </BrowserRouter>

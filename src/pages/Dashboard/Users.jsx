@@ -70,18 +70,7 @@ const Users = () => {
             <div className="user-cell">Option</div>
           </div>
 
-          {/* 
-          <div className="user-row">
-            <div className="user-cell">John Doe</div>
-            <div className="user-cell">john@gmail.com</div>
-            <div className="user-cell">United States</div>
-            <div className="user-cell">
-              <div className="action-icons">
-                <BsFillTrashFill style={{ color: "red" }} />
-                <BsFillPencilFill />
-              </div>
-            </div>
-          </div> */}
+         
 
           {users.map((user) => (
             <div className="user-row" key={user.id}>

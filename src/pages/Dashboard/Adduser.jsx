@@ -17,6 +17,7 @@ function Adduser() {
       <h1 class="title">Add Users</h1>
       <div>
         <input
+          style={{ border: "1px solid #c29d59" }}
           type="text"
           id="name"
           placeholder="enter fullnames"
@@ -28,7 +29,7 @@ function Adduser() {
       <div>
         <input
           type="text"
-          style={{ color: "#333" }}
+          style={{ border: "1px solid #c29d59", color: "#333" }}
           id="name"
           placeholder="enter country"
           value={country}
@@ -39,6 +40,7 @@ function Adduser() {
 
       <div>
         <input
+          style={{ border: "1px solid #c29d59" }}
           type="text"
           id="email"
           placeholder="enter email"
@@ -47,7 +49,7 @@ function Adduser() {
         />
       </div>
       <br></br>
-      <button style={{ width: "450px" }} onClick={handleAddUser}>
+      <button style={{ width: "400px" }} onClick={handleAddUser}>
         Add User
       </button>
     </div>

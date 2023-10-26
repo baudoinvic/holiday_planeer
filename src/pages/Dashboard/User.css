@@ -38,7 +38,8 @@
 }
 
 .user-cell {
-  flex: 1;
+  display: flex;
+  align-items: flex-start;
 }
 
 .user-cell:last-child {
