@@ -1,74 +1,78 @@
  import React, { useState } from "react";
 import './Addtour.css'
+import axios from "axios";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+
 
  const Addtour = () => {
-
+    const[image, setImage] = useState()
+  const [destination, setDestination] = useState('')
+  const [duration, setDuration] = useState('')
+  const [group, setGroup] = useState('')
+  const [price, setPrice] = useState('')
+    const handleSubmit =(e)=>{
+      let token = localStorage.getItem("token")
+      let data = new FormData()
+      data.append("backdropImage", image)
+      data.append("Destination",destination)
+      data.append("Duration",duration)
+      data.append("group",group)
+      data.append("Price",price)
+        e.preventDefault();
+        axios.post("https://holiday-planner-4lnj.onrender.com/api/v1/tour/create",data,{
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`
+        })
+             .then((Response)=> {
+                console.log(Response)
+                toast.success(Response.data.message);
+                // location.reload()
+             })
+             .catch((error)=> {
+              console.log(error)
+              toast.error(error.response.data.message)
+            })
+          }
+  
    return (
      <div className="add-tour">
-       <form className="adding-tour">
-         <label htmlFor="file">Choose File</label>
-         <input
-           style={{ border: "1px solid #c29d59" }}
-           type="file"
-           id="file"
-           name="file"
-           accept=".jpg, .jpeg, .png, .pdf" 
-           required
-         />
+    
 
-         <label htmlFor="destination">Destination</label>
+       <form onSubmit={handleSubmit}>
+         <ToastContainer />
+         <label htmlFor="">Image</label>
+         <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+         <label htmlFor="">Destination</label>
          <input
-           style={{ border: "1px solid #c29d59" }}
+           value={destination}
+           onChange={(e) => setDestination(e.target.value)}
            type="text"
-           id="destination"
-           name="destination"
-           required
+           placeholder="Mention Your Next Destination"
          />
-         <br />
-         <br />
-
-         <label htmlFor="duration">Duration </label>
+         <label htmlFor="">Duration</label>
          <input
-           style={{ border: "1px solid #c29d59" }}
-           type="number"
-           id="duration"
-           name="duration"
-           required
+           value={duration}
+           onChange={(e) => setDuration(e.target.value)}
+           type="text"
+           placeholder="How will you spend(stay)"
          />
-         <br />
-         <br />
-
-         <label htmlFor="groupsize">Group Size</label>
+         <label htmlFor="">Group Size</label>
          <input
-           style={{ border: "1px solid #c29d59" }}
-           type="number"
-           id="groupsize"
-           name="groupsize"
-           required
+           value={group}
+           onChange={(e) => setGroup(e.target.value)}
+           type="text"
+           placeholder="Group Size"
          />
-         <br />
-         <br />
-
-         <label htmlFor="price">Price </label>
+         <label htmlFor="">Price</label>
          <input
-           style={{ border: "1px solid #c29d59" }}
-           type="number"
-           id="price"
-           name="price"
-           required
+           value={price}
+           onChange={(e) => setPrice(e.target.value)}
+           type="text"
+           placeholder="Price in Dollar$"
          />
-         <br />
-         <br />
-
-         <input
-           style={{
-             color: "white",
-             height: "50px",
-             backgroundColor: "#c29d59",
-           }}
-           type="submit"
-           value="Add Tour"
-         />
+         
+         <button>Add</button>
        </form>
      </div>
    );

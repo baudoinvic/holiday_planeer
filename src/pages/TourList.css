@@ -431,8 +431,14 @@ margin-bottom: 15px;
 
 
     @media (max-width: 768px) {
-  .tourCards {
-     flex-direction: row;
-    
+  .tourCard {
+    flex-direction: column;
+    width: 100%;
+  }    
+}
+
+  @media (max-width: 768px) {
+  .right-form {
+    margin: 0; /* Remove margin on small screens */
   }
 }

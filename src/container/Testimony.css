@@ -160,9 +160,15 @@
     flex-direction: column;
     text-align: center;
   }
- 
+   
+  .testimonial-content img{
+    margin-top: 5rem;
+  }
+
+
    .testimonial-box{
-    margin-top: 30px;
+    margin-top: 4rem;
+    width: 70%;
    }
 
   
@@ -170,11 +176,7 @@
       margin-top: 10rem;
     }
 
-  /* .testimonial-image {
-    margin-right: 0;
-  } */
 
-  /* Planner Section */
   .techup {
     flex-direction: column;
   }
