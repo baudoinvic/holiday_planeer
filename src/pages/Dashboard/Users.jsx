@@ -42,9 +42,6 @@ const Users = () => {
          fetchUsers();
        }, [accessToken]);
 
-
-
-
   return (
     <div>
       <Link to="/dashboard/Adduser">
@@ -70,6 +67,7 @@ const Users = () => {
 
           {users.map((user) => (
             <div className="user-row" key={user.id}>
+             
               <div className="user-cell">{user.fullName}</div>
               <div className="user-cell">{user.email}</div>
               <div className="user-cell">{user.location}</div>
