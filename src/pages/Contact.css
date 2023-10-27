@@ -59,7 +59,7 @@ justify-content:space-between;
 form{
     background-color: rgb(250, 250, 255);
     margin-top: 50px;
-    margin-left: 60px;
+    /* margin-left: 60px; */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -259,46 +259,16 @@ margin-bottom: 15px;
 
  /*responsiveness*/
 
-    @media (max-width: 768px) {
-  .ct-center {
-    flex-direction: column;
-  }
-
-   .fside{
-    width: 50%;
-   }
-
-   .msg {
-     width: 300%;
-     height: 100px;
-   }
-     
-   .quest-top{
-    margin-top: 20px;
-    margin: auto;
-   }
-
-   .quest-t{
-    margin: auto;
-    margin-top: 20px;
-   }
-   
-
-   .naem input{
-    height: 20px;
-   }
-
-   .tetx input{
-    height: 20px;
-   }
-
-}
+  
 
   @media (max-width: 768px) {
   .ct-center {
     flex-direction: column;
   }
-
+   
+     .submit{
+        margin-right: 5rem;
+     }
   .msg {
     width: 400px;
     height: 100px;
@@ -307,6 +277,7 @@ margin-bottom: 15px;
   .quest-top, .quest-t {
     margin: auto;
     margin-top: 20px;
+  
   }
 
   input, textarea {

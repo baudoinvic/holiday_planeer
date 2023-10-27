@@ -151,9 +151,9 @@
 
 
   @media (max-width: 768px) {
-  /* Testimonial */
   .testimonial-container {
     margin-top: 169rem;
+
   }
 
   .testimonial-content {
@@ -198,3 +198,13 @@
     margin-bottom: 20px;
   }
 }
+
+   @media (max-width: 768px) {
+  /* Testimonial */
+  .planer-image {
+    
+   width: 400px;
+  
+   margin-right: 5rem;
+  }
+   }

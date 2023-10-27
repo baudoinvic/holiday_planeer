@@ -5,7 +5,17 @@ import './Addtour.css'
 
    return (
      <div className="add-tour">
-       <form  className="adding-tour">
+       <form className="adding-tour">
+         <label htmlFor="file">Choose File</label>
+         <input
+           style={{ border: "1px solid #c29d59" }}
+           type="file"
+           id="file"
+           name="file"
+           accept=".jpg, .jpeg, .png, .pdf" 
+           required
+         />
+
          <label htmlFor="destination">Destination</label>
          <input
            style={{ border: "1px solid #c29d59" }}
@@ -18,17 +28,35 @@ import './Addtour.css'
          <br />
 
          <label htmlFor="duration">Duration </label>
-         <input style={{border: '1px solid #c29d59'}}  type="number" id="duration" name="duration" required />
+         <input
+           style={{ border: "1px solid #c29d59" }}
+           type="number"
+           id="duration"
+           name="duration"
+           required
+         />
          <br />
          <br />
 
          <label htmlFor="groupsize">Group Size</label>
-         <input style={{border: '1px solid #c29d59'}} type="number" id="groupsize" name="groupsize" required />
+         <input
+           style={{ border: "1px solid #c29d59" }}
+           type="number"
+           id="groupsize"
+           name="groupsize"
+           required
+         />
          <br />
          <br />
 
          <label htmlFor="price">Price </label>
-         <input style={{border: '1px solid #c29d59'}} type="number" id="price" name="price" required />
+         <input
+           style={{ border: "1px solid #c29d59" }}
+           type="number"
+           id="price"
+           name="price"
+           required
+         />
          <br />
          <br />
 

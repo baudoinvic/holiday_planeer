@@ -25,36 +25,7 @@ const Navbar = ({ toggleLogin }) => {
 
           {isMenuOpen && (
             <div className="menu-overlay" onClick={closeMenu}>
-              {/* <nav>
-                <ul className="dropdown-menu">
-                  <Link to="/">
-                    {" "}
-                    <li> Home</li>
-                  </Link>
-                  <Link to="/about">
-                    <li>About</li>
-                  </Link>
-                  <Link to="/Contact">
-                    <li>Contact</li>
-                  </Link>
-
-                  <Link to="/login">
-                    <button
-                      style={{ width: "80px" }}
-                      type="button"
-                      onClick={toggleLogin}
-                    >
-                      Login
-                    </button>
-                  </Link>
-
-                  <Link to="/Signup">
-                    <button style={{ marginLeft: "20px", width: "70px" }}>
-                      Signup
-                    </button>
-                  </Link>
-                </ul>
-              </nav> */}
+            
             </div>
           )}
         </div>

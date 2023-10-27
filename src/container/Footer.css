@@ -74,7 +74,10 @@
   .footer-planner {
     flex-direction: column;
     align-items: center;
+   margin-left: 20px;
   }
+
+  
 
  .some{
   margin-right: 16rem;

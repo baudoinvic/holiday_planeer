@@ -89,6 +89,7 @@
   .images-container {
     margin-right: 0;
     align-items: center;
+    margin-left: 4rem;
   }
 
   .images-row {
