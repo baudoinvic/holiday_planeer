@@ -5,63 +5,59 @@ import { GiCancel } from "react-icons/gi";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import Adduser from './Adduser';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 const Users = () => {
       
-  const [showAddUser, setShowAddUser] = useState(false);
-   const [users, setUsers] = useState([]);
+     const addUserToList = (newUser) => {
+       setUsers([...users, newUser]);
+     };
 
-         useEffect(() => {
-           const fetchuser = async () => {
+
+
+
+
+
+
+   const [users, setUsers] = useState([]);
+   const accessToken =
+     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNhODM5ZGJkMjNiZTYzMmIyODJlNWYiLCJpYXQiOjE2OTgzMzM2MTcsImV4cCI6MTY5ODM0NDQxN30.dDQa_rN3il7z_CI1EKrWAGsXgXFQyzPJdqSy70i2cIo";
+
+        
+       useEffect(() => {
+         const fetchUsers = async () => {
+           try {
              const res = await axios.get(
-               "https://holiday-planner-4lnj.onrender.com/api/v1/auth/users"
+               "https://holiday-planner-4lnj.onrender.com/api/v1/auth/users",
+               {
+                 headers: {
+                   Authorization: `Bearer ${accessToken}`,
+                 },
+               }
              );
              console.log(res.data);
              setUsers(res.data);
-           };
-           fetchuser();
-         }, []);
+           } catch (error) {
+             // Handle errors
+             console.error("Error fetching users:", error);
+           }
+         };
+
+         fetchUsers();
+       }, [accessToken]);
 
 
 
-
-
-
-
-          /*new user*/
-
-          const handleUserSignup = async (newUser) => {
-            try {
-            
-              const response = await axios.post(
-                "https://holiday-planner-4lnj.onrender.com/api/v1/auth/register",
-                newUser
-              );
-
-              setUsers([...users, response.data]);
-
-              setShowAddUser(false);
-            } catch (error) {
-              console.error("Error creating user:", error);
-            }
-          };
-
-    
-
-  const toggleAddUser = () => {
-    setShowAddUser(!showAddUser);
-  };
 
   return (
     <div>
-      <nav className="add-user-btn" onClick={toggleAddUser}>
-        Add User
-      </nav>
+      <Link to="/dashboard/Adduser">
+        <nav style={{ marginTop: "-50px" }} className="add-user-btn">
+          Add User
+        </nav>
+      </Link>
 
-      {showAddUser && <Adduser onUserSignup={handleUserSignup} />}
-
-      <div className="user-container">
+      <div style={{ marginTop: "5rem" }} className="user-container">
         <div className="user-list">
           <div className="user-row user-headers">
             <div className="user-cell">Fullname</div>
@@ -70,7 +66,11 @@ const Users = () => {
             <div className="user-cell">Option</div>
           </div>
 
-         
+          {users.map((user, index) => (
+            <li key={index}>
+              {user.name}, {user.country}, {user.email}
+            </li>
+          ))}
 
           {users.map((user) => (
             <div className="user-row" key={user.id}>
@@ -88,7 +88,7 @@ const Users = () => {
 
           <div className="user-row">
             <div className="user-cell">Elia rams</div>
-            <div className="user-cell">elia@gmail.com</div>
+            <div className="user-cell">eliarams@gmail.com</div>
             <div className="user-cell">Congo Drc</div>
             <div className="user-cell">
               <div className="action-icons">
@@ -102,33 +102,9 @@ const Users = () => {
           </div>
 
           <div className="user-row">
-            <div className="user-cell">Adolph clark</div>
-            <div className="user-cell">adolph@gmail.com</div>
-            <div className="user-cell">kenya nairobi</div>
-            <div className="user-cell">
-              <div className="action-icons">
-                <BsFillTrashFill style={{ color: "red" }} />
-                <BsFillPencilFill />
-              </div>
-            </div>
-          </div>
-
-          <div className="user-row">
             <div className="user-cell">jonathan</div>
             <div className="user-cell">janathan@gmail.com</div>
-            <div className="user-cell">Rwanda kigali</div>
-            <div className="user-cell">
-              <div className="action-icons">
-                <BsFillTrashFill style={{ color: "red" }} />
-                <BsFillPencilFill />
-              </div>
-            </div>
-          </div>
-
-          <div className="user-row">
-            <div className="user-cell">Fabrice fab</div>
-            <div className="user-cell">fabrice@gmail.com</div>
-            <div className="user-cell">Congo Drc</div>
+            <div className="user-cell">Burundi buja</div>
             <div className="user-cell">
               <div className="action-icons">
                 <BsFillTrashFill style={{ color: "red" }} />

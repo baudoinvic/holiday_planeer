@@ -3,24 +3,34 @@ import './Adduser.css'
 
 
 
-function Adduser() {
+function Adduser(onAddUser) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
 
   const handleAddUser = () => {
-    // Add user handling logic will go here
+    const newUser = {
+      name,
+      email,
+      country,
+    };
+
+    onAddUser(newUser);
+
+    setName("");
+    setEmail("");
+    setCountry("");
   };
 
   return (
-    <div>
+    <div className="users-add">
       <h1 class="title">Add Users</h1>
       <div>
         <input
           style={{ border: "1px solid #c29d59" }}
           type="text"
           id="name"
-          placeholder="enter fullnames"
+          placeholder="username"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -43,7 +53,7 @@ function Adduser() {
           style={{ border: "1px solid #c29d59" }}
           type="text"
           id="email"
-          placeholder="enter email"
+          placeholder="enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

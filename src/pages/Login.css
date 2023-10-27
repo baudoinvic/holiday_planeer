@@ -1,11 +1,11 @@
 
  .login-container {
   display: flex;
-  /* height: 70vh; */
+
   width: 75%;
   margin-left: 10%;
   margin-right: 10%;
-  background-color: rgb(250, 250, 255);
+  /* background-color: rgb(250, 250, 255); */
 }
 
 .login-form {
@@ -56,7 +56,7 @@
 .login-form button {
   width: 30%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #c29d59;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -110,4 +110,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
+    .login-form button{
+      width: 230px;
+    }
 }

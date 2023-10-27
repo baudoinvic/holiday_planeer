@@ -428,3 +428,11 @@ margin-bottom: 15px;
   .footcards p {
     margin-top: 12px;
   }
+
+
+    @media (max-width: 768px) {
+  .tourCards {
+     flex-direction: row;
+    
+  }
+}

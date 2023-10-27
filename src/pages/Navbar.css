@@ -4,16 +4,19 @@
 .nav-tech {
   display: flex;
   justify-content: space-between; 
-  /* background-color: #2b2b2b;
-  height: 90px; */
+
   align-items: center;
 
   /*responsiveness*/
   @media (max-width: 768px) {
     flex-direction: row;
     height: auto;
-  
   }
+
+    .close-icon{
+    margin-right: 10rem;
+    }
+
 }
 
 .contact-info {

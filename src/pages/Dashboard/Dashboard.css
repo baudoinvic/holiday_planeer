@@ -12,7 +12,7 @@
 }
 
 .sidebar-left-side li {
-  /* list-style: none; */
+  list-style: none;
   margin-bottom: 20px;
   display: flex;
   align-items: center;

@@ -59,3 +59,29 @@
 
 
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .sidebar-right-side {
+    margin-left: 0; 
+  }
+
+  .total-booking {
+    padding: 1rem; 
+  }
+
+  .total-booking span {
+    padding: 0.5rem; 
+    font-size: 1rem; 
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem; 
+  }
+}
+
+
+
+
+
+

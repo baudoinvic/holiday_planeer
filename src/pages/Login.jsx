@@ -1,23 +1,41 @@
 import React, { useState } from "react";
 import './Login.css'
 import { Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
-  const handleLogin = () => {
-  };
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+ const formdata = { email, password };
 
   const navigate = useNavigate(); 
-  
+
+      const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+          const res = await axios.post(
+            "https://holiday-planner-4lnj.onrender.com/api/v1/auth/login",
+            formdata
+          );
+          console.log(res);
+          alert("login success");
+          navigate("/dashboard");
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+ 
   return (
     <>
       <div className="login-container">
         <div className="login-form">
           {error && <p className="error-message">{error}</p>}
-          <form className="user-login">
+          <form action="" className="user-login" id="form" onSubmit={handleLogin}>
             <h2 className="login">Login</h2>
             <div className="form-group">
               <label>Email</label>
@@ -36,12 +54,8 @@ const Login = () => {
               />
             </div>
 
-            <button
-              className="button-form"
-              onClick={() => navigate("/Dashboard")}
-            >
-              Login
-            </button>
+            <button className="submit">Login</button>
+           
 
             <p className="signup-link">
               Don't have an account? <a href="/signup">Sign up here</a>
@@ -58,3 +72,9 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+

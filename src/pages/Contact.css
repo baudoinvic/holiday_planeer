@@ -293,3 +293,28 @@ margin-bottom: 15px;
    }
 
 }
+
+  @media (max-width: 768px) {
+  .ct-center {
+    flex-direction: column;
+  }
+
+  .msg {
+    width: 400px;
+    height: 100px;
+  }
+
+  .quest-top, .quest-t {
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  input, textarea {
+    height: 20px;
+  }
+
+  form button {
+    height: 30px; /* Adjust button height as needed */
+    width: 100px; /* Adjust button width as needed */
+  }
+}
