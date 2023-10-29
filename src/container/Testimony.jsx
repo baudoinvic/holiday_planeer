@@ -4,9 +4,9 @@ import { FaStar } from 'react-icons/fa';
 import { MdFiberManualRecord } from 'react-icons/md';
 
 const testimonies = [
-  'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.',
-   
-  'we are so proud of this company and we also like their works because they are the best one among the best company we can not wait to work with them next time because they deserve much respect and we will always keep in touch',
+  "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,",
+
+  "we are so proud of this company and we also like their works because they are the best one among the best company we can not wait to work with them next time because they deserve much respect and we will always keep in touch",
   // Add more testimonies here
 ];
 
@@ -54,17 +54,17 @@ const Testimony = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="text-column">
-          <div className="intro-container">
-            <div className="intro">
+      <div className="testimonial">
+        <div className="testimonial-text">
+          <div className="testimonial-desc">
+            <div className="desc-test">
               <h3 style={{ color: "#C29D59" }}>Latest News</h3>
               <h1>Learn More About Tours</h1>
             </div>
           </div>
         </div>
 
-        <div className="button-column">
+        <div className="testimonial-button">
           <div className="preview">
             <button style={{ marginTop: "50px" }}>LEARN MORE</button>
           </div>
@@ -126,11 +126,7 @@ const Testimony = () => {
           </div>
         </div>
 
-        <div className="full-last">
-          <div className="full-column">
-            <img src="https://html.geekcodelab.com/holiday-planners/assets/images/instagram-image1.jpg"></img>
-          </div>
-        </div>
+    
       </div>
     </div>
   );

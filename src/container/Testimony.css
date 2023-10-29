@@ -10,22 +10,28 @@
 .testimonial-content {
     display: flex;
     align-items: center;
-    max-width: 830px;
     text-align: center;
+    max-width: 62rem;
+    margin-right: 16rem;
   }
   
   .testimonial-image {
     width: 240px; 
     margin-right: 90px; 
   }
+
+    .full-last img {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
   
   .testimonial-box {
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    text-align: left; /* Adjust the text alignment as needed */
-    flex-grow: 1; /* Allows the box to take up remaining available width */
+    text-align: left; 
+    flex-grow: 1; 
   }
   
   .stars-icons {
@@ -57,23 +63,47 @@
     color: #C29D59;
   }
 
+
+   /*testimonial*/
+     
+    .testimonial{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+     
+
+    }
+     .desc-test{
+      
+      margin-top: 5rem;
+     }
+
+  
+
+     .testimonial-button{
+      margin-right: 14rem;
+     }
+
+
+
    /*images column*/
 
    .klab {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Center content vertically in the viewport */
+    height: 100vh; 
   }
   
   .techup {
     display: flex;
-    flex-direction: row; /* Place children in a row (horizontal) */
+    flex-direction: row; 
   }
   
   .skills {
-    flex: 1; /* Distribute available space equally between columns */
-    text-align: center; /* Center content horizontally within columns */
+    flex: 1; 
+    text-align: center; 
   }
   
   img {
@@ -153,6 +183,7 @@
   @media (max-width: 768px) {
   .testimonial-container {
     margin-top: 169rem;
+    margin-left: 15rem;
 
   }
 
@@ -160,17 +191,30 @@
     flex-direction: column;
     text-align: center;
   }
-   
+
+  
   .testimonial-content img{
     margin-top: 5rem;
   }
 
+    .testimonial{
+      flex-direction: column;
+      margin-top: 7rem;
+    } 
 
-   .testimonial-box{
-    margin-top: 4rem;
-    width: 70%;
-   }
+       .testimonial-text h1{
+        margin-right: 2rem;
+       }
 
+       .testimonial-text h3{
+        margin-left: 1rem;
+       }
+
+      .testimonial-button{
+        margin-left: 2rem;
+        margin-top: -2rem;
+      }
+   
   
     .intro h3{
       margin-top: 10rem;
@@ -194,19 +238,19 @@
   /* Full Last Section */
   .the-last-one {
     flex-direction: column;
+    margin-right: 5rem;
   }
 
   .full-column {
     margin-bottom: 20px;
+   
   }
+
+   .planer-image{
+    width: 400px;
+    margin-right: 4rem;
+   }
+
 }
 
-   @media (max-width: 768px) {
-  /* Testimonial */
-  .planer-image {
-    
-   width: 400px;
-  
-   margin-right: 5rem;
-  }
-   }
+ 

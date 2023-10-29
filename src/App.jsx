@@ -22,6 +22,7 @@ import Users from "./pages/Dashboard/Users";
 import Tour from "./pages/Dashboard/Tour";
 import Addtour from "./pages/Dashboard/Addtour";
 import Adduser from "./pages/Dashboard/Adduser";
+import Edittour from "./pages/Dashboard/Edittour";
 
 
 
@@ -68,6 +69,8 @@ const App = () => {
             <Route path="Tour" element={<Tour />} />
             <Route path="Adduser" element={<Adduser />} />
             <Route path="Addtour" element={<Addtour />} />
+            <Route path="Edittour/:id" element={<Edittour />} />
+         
           </Route>
         </Routes>
       </BrowserRouter>

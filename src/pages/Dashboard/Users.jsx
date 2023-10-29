@@ -16,16 +16,18 @@ const Users = () => {
 
 
    const [users, setUsers] = useState([]);
-   const accessToken = "";
-    //  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNhODM5ZGJkMjNiZTYzMmIyODJlNWYiLCJpYXQiOjE2OTgzMzM2MTcsImV4cCI6MTY5ODM0NDQxN30.dDQa_rN3il7z_CI1EKrWAGsXgXFQyzPJdqSy70i2cIo";
-
-        
+    
+       let token = localStorage.getItem("token");
+       const accessToken = "";
+         
        useEffect(() => {
          const fetchUsers = async () => {
            try {
              const res = await axios.get(
                "https://holiday-planner-4lnj.onrender.com/api/v1/auth/users",
+               
                {
+                 method: 'GET',
                  headers: {
                    Authorization: `Bearer ${accessToken}`,
                  },
@@ -44,9 +46,10 @@ const Users = () => {
 
   return (
     <div>
+      <h2>Users List</h2>
       <Link to="/dashboard/Adduser">
         <nav style={{ marginTop: "-50px" }} className="add-user-btn">
-          Add User
+          New User
         </nav>
       </Link>
 
@@ -67,7 +70,7 @@ const Users = () => {
 
           {users.map((user) => (
             <div className="user-row" key={user.id}>
-             
+               
               <div className="user-cell">{user.fullName}</div>
               <div className="user-cell">{user.email}</div>
               <div className="user-cell">{user.location}</div>

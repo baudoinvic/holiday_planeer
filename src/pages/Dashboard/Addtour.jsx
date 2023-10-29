@@ -41,7 +41,7 @@ import { ToastContainer } from "react-toastify";
 
        <form onSubmit={handleSubmit}>
          <ToastContainer />
-         <label htmlFor="">Image</label>
+         {/* <label htmlFor="">Image</label> */}
          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
          <label htmlFor="">Destination</label>
          <input

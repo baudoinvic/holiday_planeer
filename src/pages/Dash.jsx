@@ -47,20 +47,7 @@ const Dash = () => {
         <div class="content-data">
           <div class="head">
             <h3>Sales Report</h3>
-            <div class="menu">
-              <i class="bx bx-dots-horizontal-rounded icon"></i>
-              <ul class="menu-link">
-                <li>
-                  <a href="#">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Save</a>
-                </li>
-                <li>
-                  <a href="#">Remove</a>
-                </li>
-              </ul>
-            </div>
+        
           </div>
           <div class="chart">
             <div id="chart">{/* <Bar data={data} options={options} /> */}</div>

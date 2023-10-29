@@ -7,6 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
 import { FaUsersCog, FaChartBar } from "react-icons/fa";
 import { PiAirplaneTiltFill } from "react-icons/pi";
+
 // import { faCircle } from "@fortawesome/free-solid-svg-icons";
 // import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import {
@@ -16,6 +17,7 @@ import {
   faInfoCircle,
   faComments,
   faCalendar,
+  faLessThan,
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -41,10 +43,14 @@ const Dashboard = () => {
               <a style={{ color: "#c29d59" }} href="#">
                 Dashboard
               </a>
+             
             </li>
           </Link>
 
-          <Link to="/dashboard/Tour">
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/dashboard/Tour"
+          >
             <li>
               <PiAirplaneTiltFill />
               Tour
@@ -56,7 +62,10 @@ const Dashboard = () => {
             <a href="#">Booking</a>
           </li>
 
-          <Link to="/dashboard/Users">
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/dashboard/Users"
+          >
             <li>
               <FaUsersCog />
               Users
@@ -76,7 +85,6 @@ const Dashboard = () => {
       <div className="sidebar-right-side">
         <main>
           <Outlet />
-          
         </main>
       </div>
     </div>

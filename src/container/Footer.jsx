@@ -34,10 +34,10 @@ const Footer = () => {
           </div>
 
           {/* Second Column: Navigation */}
-          <div className="col">
+          <div style={{marginRight: '5rem'}} className="col">
             <ul className="footer-nav">
               <h2>Navigation</h2>
-              <hr></hr>
+              <hr style={{backgroundColor: '#c29d59'}}></hr>
               <li>
                 <a href="/">Home</a>
               </li>
@@ -58,7 +58,7 @@ const Footer = () => {
 
           {/* Third Column: Contact Information */}
           <div className="some">
-            <div style={{ marginLeft: "10%" }} className="col">
+            <div style={{ marginLeft: "5%" }} className="col">
               <h4>Need Help?</h4>
               <hr></hr>
 

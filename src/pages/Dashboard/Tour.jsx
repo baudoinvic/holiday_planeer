@@ -5,6 +5,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { GrAddCircle } from "react-icons/gr";
+
+
+
+ /*Edit tour */
+
+
 
 const Tour = () => {
   const navigate = useNavigate();
@@ -52,7 +59,7 @@ const Tour = () => {
         } else {
           toast.error("Failed to delete the Tour");
         }
-      } catch (error) {
+      } catch (error) {l
         if (error.response && error.response.data) {
           const errorMessage = error.response.data.message;
           toast.error("Error in deleting the Tour: " + errorMessage);
@@ -60,7 +67,6 @@ const Tour = () => {
           toast.error("An error occurred while deleting the Tour");
         }
       }
-
         
     }
   };
@@ -68,8 +74,13 @@ const Tour = () => {
 
   return (
     <div className="">
+      <ToastContainer />
       <Link to="/dashboard/Addtour">
-        <nav className="add-user-btn">Add Tour</nav>
+        <nav className="add-user-btn">
+          {" "}
+          <GrAddCircle style={{marginRight: '20px'}} />
+          Add Tour
+        </nav>
       </Link>
 
       <h1 className="title">Tours</h1>
@@ -105,7 +116,12 @@ const Tour = () => {
                   onClick={() => deleteTour(item._id)}
                   style={{ color: "red", cursor: "pointer" }}
                 />
-                <BsFillPencilFill />
+                <Link
+                  style={{ color: "black" }}
+                  to={`/dashboard/Edittour/${item._id}`}
+                >
+                  <BsFillPencilFill />
+                </Link>
               </div>
             </div>
           </div>
