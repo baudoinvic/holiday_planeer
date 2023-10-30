@@ -109,7 +109,7 @@ const Tour = () => {
             <div className="user-cell">{item.destination}</div>
             <div className="user-cell">{item.Duration}</div>
             <div className="user-cell">{item.GroupSize}</div>
-            <div className="user-cell">{item.price}</div>
+            <div className="user-cell">{item.Price}</div>
             <div className="user-cell">
               <div className="action-icons">
                 <BsFillTrashFill

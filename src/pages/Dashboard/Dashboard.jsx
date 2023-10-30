@@ -8,8 +8,7 @@ import { Link, Outlet } from "react-router-dom";
 import { FaUsersCog, FaChartBar } from "react-icons/fa";
 import { PiAirplaneTiltFill } from "react-icons/pi";
 
-// import { faCircle } from "@fortawesome/free-solid-svg-icons";
-// import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
+
 import {
   faTachometerAlt,
   faHome,
@@ -26,59 +25,51 @@ const Dashboard = () => {
   const navigate = useNavigate();
   return (
     <div className="dashboard">
-      <div className="sidebar">
-        <div className="sidebar-left-side">
-          {/* <img src={img}></img> */}
-          <img
-            style={{ width: "140px" }}
-            src="https://html.geekcodelab.com/holiday-planners/assets/images/logo.png"
-          ></img>
+      <div class="sidebar">
+        <div class="sidebar-left-side">
+          <img src="https://html.geekcodelab.com/holiday-planners/assets/images/logo.png" />
 
-          <Link to="/dashboard">
+          <ul class="sidebar-menu">
             <li>
-              <FontAwesomeIcon
-                style={{ color: "#c29d59" }}
-                icon={faTachometerAlt}
-              />
-              <a style={{ color: "#c29d59" }} href="#">
-                Dashboard
-              </a>
-             
+              <Link to="/dashboard">
+                <FontAwesomeIcon
+                  style={{ color: "#c29d59" }}
+                  icon={faTachometerAlt}
+                />
+                <a style={{ color: "#c29d59" }} href="#">
+                  Dashboard
+                </a>
+              </Link>
             </li>
-          </Link>
 
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/dashboard/Tour"
-          >
             <li>
-              <PiAirplaneTiltFill />
-              Tour
+              <Link to="/dashboard/Tour">
+                <PiAirplaneTiltFill />
+                <a href="">Tour</a>
+              </Link>
             </li>
-          </Link>
 
-          <li>
-            <FontAwesomeIcon icon={faComments} />
-            <a href="#">Booking</a>
-          </li>
+            <Link style={{ color: " #2B2B2B", textDecoration: "none" }} to="">
+              <li>
+                <FontAwesomeIcon icon={faComments} />
+                <a href="">Booking</a>
+              </li>
+            </Link>
 
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/dashboard/Users"
-          >
             <li>
-              <FaUsersCog />
-              Users
+              <Link to="/dashboard/Users">
+                <FaUsersCog />
+                <a href="">Users</a>
+              </Link>
             </li>
-          </Link>
 
-          <FaSignOutAlt style={{ marginTop: "20rem" }} />
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate("/login")}
-          >
-            Logout
-          </span>
+            <li style={{ marginTop: "20rem" }}>
+              <FaSignOutAlt />
+              <span onClick={() => navigate("/login")}>
+                <a href="">Logout</a>
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
 

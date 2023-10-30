@@ -9,6 +9,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
   import { MdOutlineKeyboardArrowRight } from "react-icons/md";
   import { MdEmail } from "react-icons/md";
   import { BsFillTelephoneFill } from "react-icons/bs";
+  import { BiUser, BiEnvelope } from "react-icons/bi";
+  import { MdPhone } from "react-icons/md";
  
 import {
   faClock,
@@ -47,6 +49,12 @@ const Tourdetail = () => {
                 soul
               </h2>
             </div>
+            <div class="tour-price">
+              <div class="price-circle">
+                <h3 class="h3-title">$1200</h3>
+                <p>Per Person</p>
+              </div>
+            </div>
           </div>
 
           <div class="tour-container">
@@ -73,13 +81,6 @@ const Tourdetail = () => {
                   <span class="text">Discovery</span>
                 </li>
               </ul>
-            </div>
-
-            <div class="tour-price">
-              <div class="price-circle">
-                <h3 class="h3-title">$1200</h3>
-                <p>Per Person</p>
-              </div>
             </div>
           </div>
 
@@ -110,34 +111,85 @@ const Tourdetail = () => {
                 />
               </video>
             </div>
+            <div className="transit">
+              <div className="first-one">
+                <h4>Destination</h4>
+                <h4>Departure</h4>
+                <h4>Departure time</h4>
+                <h4>Return time</h4>
+                <h4>Dress code</h4>
+              </div>
+
+              <div className="second-one">
+                <h4>Greece</h4>
+                <h4>Lorem Ipsum</h4>
+                <h4>9:15 AM To 9:30 AM.</h4>
+                <h4>Approximately 10:30 PM.</h4>
+                <h4>comfortable clothing and light jacket.</h4>
+              </div>
+            </div>
+            <div className="tourism">
+              <div className="image1">
+                <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-gallery-slide-image1.jpg"></img>
+              </div>
+
+              <div className="image2">
+                <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-gallery-slide-image2.jpg"></img>
+              </div>
+
+              <div className="image3">
+                <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-gallery-slide-image4.jpg"></img>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="tour-right">
-          <form action="" className="right-form">
-            <label htmlFor="" className="findd">
-              FIND YOUR TOUR
-            </label>
+          <form style={{ width: "300px" }} action="" className="right-form">
+            <h2 className="form-title">FIND YOUR TOUR</h2>
 
-            <BiSearch className="srch-f" />
-            <input type="text" placeholder="fullname" />
+            <div className="form-group">
+              <input
+                type="text"
+                id="fullname"
+                placeholder="Enter your full name"
+              />
+            </div>
 
-            <MdLocationOn className="lct-f" />
-            <input type="text" placeholder="email" />
+            <div className="form-group">
+              <input type="email" id="email" placeholder="Enter your email" />
+            </div>
 
-            <MdLocationOn className="lct-f" />
-            <input type="text" placeholder="confirmemail" />
+            <div className="form-group">
+              <input
+                type="email"
+                id="confirmemail"
+                placeholder="Confirm your email"
+              />
+            </div>
 
-            <MdLocationOn className="lct-f" />
-            <input type="text" placeholder="phone" />
-           
-            <textarea>message</textarea>
+            <div className="form-group">
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+              />
+            </div>
 
-            <button>Book Now</button>
+            <div className="form-group">
+              <textarea
+                style={{ height: "80px", width: "300px" }}
+                id="message"
+                placeholder="Your message"
+              ></textarea>
+            </div>
 
+            <button type="submit" className="submit-button">
+              Book Now
+            </button>
           </form>
 
-          <div className="quest-topp">
+          <div style={{ width: "300px" }} className="quest-topp">
             <div className="quest-top-titlee">
               <h1>WHY BOOK WITH US?</h1>
             </div>

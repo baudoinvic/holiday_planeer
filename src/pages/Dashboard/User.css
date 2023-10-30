@@ -35,12 +35,13 @@
 
 .user-headers {
   font-weight: bold; 
+ 
 }
 
-.user-cell {
+/* .user-cell {
   display: flex;
   align-items: flex-start;
-}
+} */
 
 .user-cell:last-child {
   text-align: center; 
@@ -49,6 +50,7 @@
 .action-icons {
   display: flex;
   gap: 10px;
+  margin-right: 3rem;
 }
 
   

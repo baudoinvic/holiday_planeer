@@ -181,21 +181,16 @@
 
 
   @media (max-width: 768px) {
-  .testimonial-container {
-    margin-top: 169rem;
-    margin-left: 15rem;
-
-  }
-
-  .testimonial-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
+   .testimonial-container {
   
-  .testimonial-content img{
-    margin-top: 5rem;
   }
+ 
+    
+  
+  
+  /* .testimonial-content img{
+    margin-top: 5rem;
+  } */
 
     .testimonial{
       flex-direction: column;
