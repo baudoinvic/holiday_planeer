@@ -16,6 +16,28 @@
 
    const TourList = () => {
     const navigate = useNavigate ();
+    const [tourLists, setTourLists] = useState([]);
+  
+    let token = localStorage.getItem("token");
+    const fetchTourList = () => {
+      axios({
+        method: "GET",
+        url: "https://holiday-planner-4lnj.onrender.com/api/v1/tour",
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      })
+        .then((Response) => {
+          setTourLists(Response.data);
+          console.log(Response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    useEffect(() => {
+      fetchTourList();
+    }, []);
       
      return (
        <div>
@@ -48,236 +70,51 @@
 
              {/* ==================================================== */}
 
+
              <div className="tourCards">
-               <div className="tourCard">
-                 <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image1.jpg"></img>
-                 <div className="cardDescription">
-                   <div className="country">italy</div>
-                   <div className="descri">
-                     <p>
-                       Holiday Planners is a World Leading Online Tour Booking
-                       Platform
-                     </p>
-                     <p className="descr">
-                       Far far away, behind the word mountains, far from the
-                       countries Vokalia and Consonantia,
-                     </p>
-                   </div>
-                   <div className="time-size">
-                     <span className="duration">
-                       <h3>
-                         <BiTimeFive className="cardcons" />
-                         Duration
-                       </h3>
-                       <p className="smallp">2 days</p>
-                     </span>
-                     <span className="groupSize">
-                       <h3>
-                         <MdGroup className="cardcons" />
-                         Group Size
-                       </h3>
-                       <p className="smallp">6 People</p>
-                     </span>
-                   </div>
-                   <div className="footcards">
-                     <p className="price">$1200</p>
-                   
-                       <button className="butCard" onClick={() => navigate("/Tourdetail")}> book now</button>
-                     
-                   </div>
-                 </div>
-               </div>
+              {tourLists.map((tour) => {
+                return (
+                  <div className="tourCard">
+                    <img src={tour.backdropImage} alt="" />
+                    <div className="cardDescription">
+                      <div className="country">{tour.destination}</div>
+                      <div className="descri">
+                      
+                      </div>
+                      <div className="time-size">
+                        <span className="duration">
+                          <h3>
+                            <BiTimeFive className="cardcons" />
+                            {tour.Duration}
+                          </h3>
+                          <p className="smallp">{tour.Duration}</p>
+                        </span>
+                        <span className="groupSize">
+                          <h3>
+                            <MdGroup className="cardcons" />
+                            Group Size
+                          </h3>
+                          <p className="smallp">{tour.GroupSize}</p>
+                        </span>
+                      </div>
+                      <div className="footcards">
+                        <p className="price">{tour.Price}</p>
 
-               <div className="tourCard">
-                 <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image2.jpg"></img>
-                 <div className="cardDescription">
-                   <div className="country">greece</div>
-                   <div className="descri">
-                     <p>
-                       Holiday Planners is a World Leading Online Tour Booking
-                       Platform
-                     </p>
-                     <p className="descr">
-                       Far far away, behind the word mountains, far from the
-                       countries Vokalia and Consonantia,
-                     </p>
-                   </div>
-                   <div className="time-size">
-                     <span className="duration">
-                       <h3>
-                         <BiTimeFive className="cardcons" />
-                         Duration
-                       </h3>
-                       <p className="smallp">6 days 3 hours</p>
-                     </span>
-                     <span className="groupSize">
-                       <h3>
-                         <MdGroup className="cardcons" />
-                         Group Size
-                       </h3>
-                       <p className="smallp">15+ People</p>
-                     </span>
-                   </div>
-                   <div className="footcards">
-                     <p className="price">$2500</p>
-                   
-                       <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
-                
-                   </div>
-                 </div>
-               </div>
+                        <button
+                          className="butCard"
+                          onClick={() => navigate("/Tourdetail")}
+                        >
+                          {" "}
+                          book now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              
 
-               <div className="tourCard">
-                 <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image2.jpg"></img>
-                 <div className="cardDescription">
-                   <div className="country">greece</div>
-                   <div className="descri">
-                     <p>
-                       Holiday Planners is a World Leading Online Tour Booking
-                       Platform
-                     </p>
-                     <p className="descr">
-                       Far far away, behind the word mountains, far from the
-                       countries Vokalia and Consonantia,
-                     </p>
-                   </div>
-                   <div className="time-size">
-                     <span className="duration">
-                       <h3>
-                         <BiTimeFive className="cardcons" />
-                         Duration
-                       </h3>
-                       <p className="smallp">6 days 3 hours</p>
-                     </span>
-                     <span className="groupSize">
-                       <h3>
-                         <MdGroup className="cardcons" />
-                         Group Size
-                       </h3>
-                       <p className="smallp">15+ People</p>
-                     </span>
-                   </div>
-                   <div className="footcards">
-                     <p className="price">$2500</p>
-                  
-                       <button onClick={() => navigate ("/Tourdetail")} className="butCard">book now</button>
-                   
-                   </div>
-                 </div>
-               </div>
-
-               <div className="tourCard">
-                 <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image1.jpg"></img>
-                 <div className="cardDescription">
-                   <div className="country country1">switzeland</div>
-                   <div className="descri">
-                     <p>
-                       Holiday Planners is a World Leading Online Tour Booking
-                       Platform
-                     </p>
-                     <p className="descr">
-                       Far far away, behind the word mountains, far from the
-                       countries Vokalia and Consonantia,
-                     </p>
-                   </div>
-                   <div className="time-size">
-                     <span className="duration">
-                       <h3>
-                         <BiTimeFive className="cardcons" />
-                         Duration
-                       </h3>
-                       <p className="smallp">7 days 8 hours</p>
-                     </span>
-                     <span className="groupSize">
-                       <h3>
-                         <MdGroup className="cardcons" />
-                         Group Size
-                       </h3>
-                       <p className="smallp">50+ People</p>
-                     </span>
-                   </div>
-                   <div className="footcards">
-                     <p className="price">$750</p>
-                  
-                       <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
-                    
-                   </div>
-                 </div>
-               </div>
-               <div className="tourCard">
-                 <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image2.jpg"></img>
-                 <div className="cardDescription">
-                   <div className="country">italy</div>
-                   <div className="descri">
-                     <p>
-                       Holiday Planners is a World Leading Online Tour Booking
-                       Platform
-                     </p>
-                     <p className="descr">
-                       Far far away, behind the word mountains, far from the
-                       countries Vokalia and Consonantia,
-                     </p>
-                   </div>
-                   <div className="time-size">
-                     <span className="duration">
-                       <h3>
-                         <BiTimeFive className="cardcons" />
-                         Duration
-                       </h3>
-                       <p className="smallp">2 days</p>
-                     </span>
-                     <span className="groupSize">
-                       <h3>
-                         <MdGroup className="cardcons" />
-                         Group Size
-                       </h3>
-                       <p className="smallp">6 People</p>
-                     </span>
-                   </div>
-                   <div className="footcards">
-                     <p className="price">$1200</p>
-                    
-                       <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
-                  
-                   </div>
-                 </div>
-               </div>
-               <div className="tourCard">
-                 <img src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image1.jpg"></img>
-                 <div className="cardDescription">
-                   <div className="country">greece</div>
-                   <div className="descri">
-                     <p>
-                       Holiday Planners is a World Leading Online Tour Booking
-                       Platform
-                     </p>
-                     <p className="descr">
-                       Far far away, behind the word mountains, far from the
-                       countries Vokalia and Consonantia,
-                     </p>
-                   </div>
-                   <div className="time-size">
-                     <span className="duration">
-                       <h3>
-                         <BiTimeFive className="cardcons" />
-                         Duration
-                       </h3>
-                       <p className="smallp">6 days 3 hours</p>
-                     </span>
-                     <span className="groupSize">
-                       <h3>
-                         <MdGroup className="cardcons" />
-                         Group Size
-                       </h3>
-                       <p className="smallp">15+ People</p>
-                     </span>
-                   </div>
-                   <div className="footcards">
-                     <p className="price">$2500</p>
-                     <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
-                   </div>
-                 </div>
-               </div>
+          
              </div>
 
              {/* ==================================================== */}
