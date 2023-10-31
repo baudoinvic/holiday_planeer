@@ -409,10 +409,11 @@ margin-bottom: 15px;
     text-transform: uppercase;
     border-radius: 5px;
     color: white;
-    text-decoration: none;
+    /* text-decoration: none; */
     margin-top: -20px;
-    margin-right: 20px;
+    margin-right: 35px;
   }
+ 
   .butCard:hover{
     background-color: #000;
     color: #ffffff;

@@ -11,14 +11,14 @@
    import "./TourList.css";
    import axios from 'axios';
    import React, { useState, useEffect } from "react";
+   import { Navigate,useNavigate } from "react-router-dom";
    
 
    const TourList = () => {
+    const navigate = useNavigate ();
       
      return (
        <div>
-        
-
          <div className="Tourlist">
            <div className="Tourlist-image">
              <div className="text">
@@ -81,7 +81,9 @@
                    </div>
                    <div className="footcards">
                      <p className="price">$1200</p>
-                     <button className="butCard">book now</button>
+                   
+                       <button className="butCard" onClick={() => navigate("/Tourdetail")}> book now</button>
+                     
                    </div>
                  </div>
                </div>
@@ -118,7 +120,9 @@
                    </div>
                    <div className="footcards">
                      <p className="price">$2500</p>
-                     <button className="butCard">book now</button>
+                   
+                       <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
+                
                    </div>
                  </div>
                </div>
@@ -155,7 +159,9 @@
                    </div>
                    <div className="footcards">
                      <p className="price">$2500</p>
-                     <button className="butCard">book now</button>
+                  
+                       <button onClick={() => navigate ("/Tourdetail")} className="butCard">book now</button>
+                   
                    </div>
                  </div>
                </div>
@@ -192,7 +198,9 @@
                    </div>
                    <div className="footcards">
                      <p className="price">$750</p>
-                     <button className="butCard">book now</button>
+                  
+                       <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
+                    
                    </div>
                  </div>
                </div>
@@ -228,7 +236,9 @@
                    </div>
                    <div className="footcards">
                      <p className="price">$1200</p>
-                     <button className="butCard">book now</button>
+                    
+                       <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
+                  
                    </div>
                  </div>
                </div>
@@ -264,7 +274,7 @@
                    </div>
                    <div className="footcards">
                      <p className="price">$2500</p>
-                     <button className="butCard">book now</button>
+                     <button onClick={() => navigate("/Tourdetail")} className="butCard">book now</button>
                    </div>
                  </div>
                </div>
@@ -377,8 +387,6 @@
                </div>
              </div>
            </div>
-
-           
          </div>
        </div>
      );

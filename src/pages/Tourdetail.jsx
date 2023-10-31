@@ -11,6 +11,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
   import { BsFillTelephoneFill } from "react-icons/bs";
   import { BiUser, BiEnvelope } from "react-icons/bi";
   import { MdPhone } from "react-icons/md";
+  import { useState,useEffect } from 'react';
  
 import {
   faClock,
@@ -21,7 +22,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
  library.add(faClock, faUserFriends, faUserPlus, faMapMarkerAlt, faSun);
+
+
 const Tourdetail = () => {
+  const [tourDetails, setTourDetails] = useState(null);
+
+  useEffect(() => {
+    fetch("")
+      .then((response) => response.json())
+      .then((data) => setTourDetails(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+ 
+
   return (
     <div className="tour-details">
       <div className="tour-detail-image">
