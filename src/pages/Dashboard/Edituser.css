@@ -1,13 +1,10 @@
-
-
- .add-tour form {
-   width: 500px ;
+.tab-edit-user form{
+  width: 600px ;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px;
-
 }
 
- .add-tour input {
+ .tab-edit-user input{
   width: 80%;
   padding: 15px;
   margin-top: 5px;
@@ -16,11 +13,8 @@
   transition: border 0.3s;
  }
 
- .add-tour label {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
- .Cancel button{
-  background-color: red;
- }
+  .ready{
+    display: flex;
+    margin-right: 18rem;
+    justify-content: space-around;
+  }

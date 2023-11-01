@@ -73,7 +73,7 @@ const Tour = () => {
    
 
   return (
-    <div className="">
+    <div className="todo">
       <ToastContainer />
       <Link to="/dashboard/Addtour">
         <nav className="add-user-btn">

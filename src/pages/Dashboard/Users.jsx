@@ -4,7 +4,9 @@ import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; // Make sure you import 'toast' for showing notifications
+import {ToastContainer, toast } from "react-toastify"; 
+
+
 
 const Users = () => {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ const Users = () => {
     let token = localStorage.getItem("token");
     console.log(token);
     axios({
-      url: "https://holiday-planner-4lnj.onrender.com/api/v1/users/",
+      url: "https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/",
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -35,44 +37,39 @@ const Users = () => {
   }, []);
 
   /*delete user */
-  const deleteUser = async (id) => {
-    if (window.confirm("Do you want to delete this User?")) {
-      try {
-        const { data } = await axios.delete(
-          `https://holiday-planner-4lnj.onrender.com/api/v1/users/delete/${id}`
-        );
-        if (data) {
-          toast.success("User successfully deleted");
-          fetchUsers();
-        } else {
-          toast.error("Failed to delete the User");
-        }
-      } catch (error) {
-        if (error.response && error.response.data) {
-          const errorMessage = error.response.data.message;
-          toast.error("Error in deleting the User: " + errorMessage);
-        } else {
-          toast.error("An error occurred while deleting the User");
-        }
-      }
-    }
-  };
+
+     const handleDeleteUser = (id) => {
+       if (window.confirm("Are you sure you want to delete?")) {
+         let token = localStorage.getItem("token");
+         axios({
+           url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/delete/${id}`,
+           method: "DELETE",
+           headers: {
+             Authorization: `Bearer ${token}`,
+           },
+         })
+           .then((response) => {
+             toast.success("Item deleted successfully");
+             console.log(response, "Response");
+           })
+           .catch((error) => {
+             toast.error(error.response.data.message);
+             console.log(error, "Error");
+           });
+       }
+     };
+     
 
   return (
     <div>
-      <h2>Users List</h2>
-      <Link to="/dashboard/Adduser">
-        <nav style={{ marginTop: "-50px" }} className="add-user-btn">
-          New User
-        </nav>
-      </Link>
+      {/* <h2>Users List</h2> */}
 
-      <div style={{ marginTop: "5rem" }} className="user-container">
+      <div className="user-tour">
         <div className="user-list">
           <div className="user-row user-headers">
             <div className="user-cell">Fullname</div>
             <div className="user-cell">Email</div>
-            <div className="user-cell">Country</div>
+            <div className="user-cell">Role</div>
             <div className="user-cell">Action</div>
           </div>
 
@@ -80,20 +77,23 @@ const Users = () => {
             <div className="user-row" key={user.id}>
               <div className="user-cell">{user.fullName}</div>
               <div className="user-cell">{user.email}</div>
-              <div className="user-cell">{user.location}</div>
+              <div className="user-cell">{user.role}</div>
               <div className="user-cell">
                 <div className="action-icons">
                   <BsFillTrashFill
-                    onClick={() => deleteUser(user.id)}
-                    style={{ color: "red" }}
+                    onClick={() => handleDeleteUser(user._id)}
+                    style={{ cursor: "pointer", color: "red" }}
                   />
-                  <BsFillPencilFill />
+                  <Link to = "/dashboard/Edituser">
+                    <BsFillPencilFill />
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -6,6 +6,12 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
+
+
+
+
+
+
 const Edittour = () => {
   const navigate = useNavigate();
   const params = useParams();
@@ -86,9 +92,9 @@ const Edittour = () => {
 
 
   return (
-    <div>
+    <div className="add-tour">
       <ToastContainer />
-      <form style={{ width: "800px" }}>
+      <form>
         <h1>Edit tours</h1>
         <input
           onChange={(e) => handleImage(e)}

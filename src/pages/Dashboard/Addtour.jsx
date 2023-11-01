@@ -24,6 +24,7 @@ import { Navigate,useNavigate } from "react-router-dom";
       data.append("group",group)
       data.append("Price",price)
         e.preventDefault();
+        
         axios.post("https://holiday-planner-4lnj.onrender.com/api/v1/tour/create",data,{
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${token}`
@@ -41,8 +42,7 @@ import { Navigate,useNavigate } from "react-router-dom";
   
    return (
      <div className="add-tour">
-    
-
+  
        <form onSubmit={handleSubmit}>
          <ToastContainer />
          <input type="file" onChange={(e) => setImage(e.target.files[0])} />

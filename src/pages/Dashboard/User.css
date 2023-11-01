@@ -12,9 +12,10 @@
   cursor: pointer;
 }
 
-.user-container{
+.user-tour{
   margin-top: 40px;
   width: 950px;
+  border: 1px solid gray;
 }
 
  .user-list {

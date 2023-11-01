@@ -3,14 +3,10 @@
  .sidebar-right-side{
     display: flex;
     margin-left: 8rem;
-  
-   
  }
 
   .total-booking{
-    padding: 40px;
-  
-   
+    padding: 40px; 
   }
 
   .total-booking span{
@@ -23,15 +19,14 @@
     /*table*/
 
   /* Set the overall table style */
-.table {
+/* .table {
   width: 980px; 
   border-collapse: separate;
   border-spacing: 0;
   background-color: #f5f5f5;
   margin-top: 30px;
-  /* border: 1px solid #ccc;  */
   border-radius: 5px; 
-}
+} */
 
 /* Style table cells */
 .table th, .table td {
@@ -46,9 +41,15 @@
   color: #333; 
 }
 
+.user-container{
+    width: 950px;
 
+}
 
-/* Center text in specific columns (2nd and 3rd) */
+ .todo{
+  margin-top: 5rem;
+ }
+
 .table td:nth-child(2),
 .table th:nth-child(2),
 .table td:nth-child(3),

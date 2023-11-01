@@ -2,7 +2,9 @@
     display: flex;
 }
 
-  .sidebar {
+
+
+ .sidebar {
   width: 250px;
   height: 690px;
   padding: 20px;
@@ -51,6 +53,7 @@
 
 
  /*right side*/
+
 
   main .info-data {
   margin-top: 46px;
