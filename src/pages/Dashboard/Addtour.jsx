@@ -3,10 +3,14 @@ import './Addtour.css'
 import axios from "axios";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import { Navigate,useNavigate } from "react-router-dom";
 
 
  const Addtour = () => {
-    const[image, setImage] = useState()
+
+   const navigate = useNavigate();
+
+  const[image, setImage] = useState()
   const [destination, setDestination] = useState('')
   const [duration, setDuration] = useState('')
   const [group, setGroup] = useState('')
@@ -41,7 +45,6 @@ import { ToastContainer } from "react-toastify";
 
        <form onSubmit={handleSubmit}>
          <ToastContainer />
-         {/* <label htmlFor="">Image</label> */}
          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
          <label htmlFor="">Destination</label>
          <input

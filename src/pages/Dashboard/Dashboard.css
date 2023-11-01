@@ -43,47 +43,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .sidebar-left-side h3{
     margin-top: -2.5rem;
     margin-left: 4rem;
@@ -154,14 +113,17 @@ main .info-data {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-right: 5%;
 }
 
-main .info-data .card {
+   main .info-data .card {
 	padding: 20px;
 	border-radius: 10px;
 	background: var(--light);
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
-  width: 300px
+    width: 300px;
+    color: #2B2B2B;
+
 }
 
 main .card .head {

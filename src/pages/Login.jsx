@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './Login.css'
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,9 +23,15 @@ const Login = () => {
             "https://holiday-planner-4lnj.onrender.com/api/v1/auth/login",
             formdata
           );
-          console.log(res);
-          alert("login success");
-          navigate("/dashboard");
+          if(res.data.user.role == "admin"){
+             console.log(res);
+             toast.success("login success");
+             navigate("/dashboard");
+          } else {
+            navigate("/")
+          }
+
+         
         } catch (error) {
           console.log(error);
         }

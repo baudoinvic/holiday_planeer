@@ -1,12 +1,61 @@
 import React from 'react'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Dash = () => {
+  const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Bar Chart',
+    },
+  },
+};
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+const data = {
+  labels,
+  datasets: [
+    {
+      label: "Dataset 1",
+      data: labels.map(() => ({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+      label: "Dataset 2",
+      data: labels.map(() => ({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+    },
+  ],
+};
+
   return (
-    <div className='dash'>
+    <div className="dash">
       <h1 class="title">Dashboard</h1>
       <ul class="breadcrumbs"></ul>
       <div class="info-data">
-        <div style={{ backgroundColor: "ivory" }} class="card">
+        <div style={{ backgroundColor: "#c29d59" }} class="card">
           <div class="head">
             <div>
               <h2>1500</h2>
@@ -18,7 +67,7 @@ const Dash = () => {
           <span class="label">40%</span>
         </div>
 
-        <div style={{ backgroundColor: "ivory" }} class="card">
+        <div style={{ backgroundColor: "orange" }} class="card">
           <div class="head">
             <div>
               <h2>234</h2>
@@ -47,31 +96,14 @@ const Dash = () => {
         <div class="content-data">
           <div class="head">
             <h3>Sales Report</h3>
-        
           </div>
           <div class="chart">
-            <div id="chart">{/* <Bar data={data} options={options} /> */}</div>
-          </div>
-        </div>
-        <div class="content-data">
-          <div class="head">
-            <h3>Chatbox</h3>
-            <div class="menu">
-              <i class="bx bx-dots-horizontal-rounded icon"></i>
-              <ul class="menu-link">
-                <li>
-                  <a href="#">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Save</a>
-                </li>
-                <li>
-                  <a href="#">Remove</a>
-                </li>
-              </ul>
+            <div id="chart">
+              <Bar options={options} data={data} />
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
