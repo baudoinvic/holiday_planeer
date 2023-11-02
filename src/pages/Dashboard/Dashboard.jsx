@@ -53,7 +53,7 @@ const Dashboard = () => {
               </Link>
             </li>
 
-            <Link style={{ color: " #2B2B2B", textDecoration: "none" }} to="">
+            <Link style={{ color: " #2B2B2B", textDecoration: "none" }} to="/dashboard/Booking">
               <li>
                 <FontAwesomeIcon icon={faComments} />
                 <a href="">Booking</a>

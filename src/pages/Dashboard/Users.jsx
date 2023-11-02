@@ -84,8 +84,8 @@ const Users = () => {
                     onClick={() => handleDeleteUser(user._id)}
                     style={{ cursor: "pointer", color: "red" }}
                   />
-                  <Link to = "/dashboard/Edituser">
-                    <BsFillPencilFill />
+                  <Link to={`/dashboard/Edituser/${user._id}`}>
+                    <BsFillPencilFill style={{color: 'black'}} />
                   </Link>
                 </div>
               </div>

@@ -1,13 +1,20 @@
 import React from 'react'
+import { Doughnut } from "react-chartjs-2";
+
+
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
+
+
+
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
@@ -28,7 +35,7 @@ const Dash = () => {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Booking',
     },
   },
 };
@@ -52,16 +59,23 @@ const data = {
   datasets: [
     {
       label: "number of booking",
-       data: [20, 43, 10, 54, 8, 23, 40, 23, 56, 87, 44, 10],
-      backgroundColor: '#c29d59',
+      data: [20, 43, 10, 54, 8, 23, 40, 23, 56, 87, 44, 10],
+      backgroundColor: "#c29d59",
     },
     {
       label: "number of booking",
-      data: labels.map(() => ({ min: 0, max: 1000 })),
-      backgroundColor: '#c29d59',
+      data: [24, 26, 16, 10, 20, 40, 46, 49, 72, 34, 54, 60, 65, 70, 72],
+      backgroundColor: "skyblue",
     },
   ],
+
 };
+
+   
+  ChartJS.register(ArcElement, Tooltip, Legend);
+
+   
+
 
   return (
     <div className="dash">
@@ -100,15 +114,14 @@ const data = {
         </div>
       </div>
 
-      <div class="data">
-        <div class="content-data">
-          <div classname="chart">
+      <div class="design-chart">
             <div className="leftChartContainer">
               <Bar options={options} data={data} />
             </div>
-          
-          </div>
-        </div>
+            <div className="rightChartContainer">
+              <Doughnut data={data} />
+            </div>
+
       </div>
     </div>
   );

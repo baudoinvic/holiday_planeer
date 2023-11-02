@@ -12,6 +12,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
   import { BiUser, BiEnvelope } from "react-icons/bi";
   import { MdPhone } from "react-icons/md";
   import { useState,useEffect } from 'react';
+  import axios from 'axios';
+ import { toast } from "react-toastify";
+ 
+
  
 import {
   faClock,
@@ -20,27 +24,107 @@ import {
   faMapMarkerAlt,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import { useParams } from 'react-router-dom';
+import { Title } from 'chart.js';
 
  library.add(faClock, faUserFriends, faUserPlus, faMapMarkerAlt, faSun);
 
 
 const Tourdetail = () => {
-  const [tourDetails, setTourDetails] = useState(null);
 
-  useEffect(() => {
-    fetch("")
-      .then((response) => response.json())
-      .then((data) => setTourDetails(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
 
- 
+   const [bookFormName, setBookFormName] = useState();
+   const [bookFormEmail, setBookFormEmail] = useState();
+   const [bookFormPhone, setBookFormPhone] = useState();
+   const [bookFormDate, setBookFormDate] = useState();
+   const [bookFormTicketsNumber, setBookFormTicketsNumber] = useState();
+
+     
+   const formData = new FormData();
+
+   formData.append("tourID, tourId");
+   formData.append("fullname", bookFormName);
+   formData.append("email", bookFormEmail)
+   formData.append("phone", bookFormPhone);
+   formData.append("date", bookFormDate);
+   formData.append("numberOfTickets", bookFormTicketsNumber);
+
+      let token = localStorage.getItem("token");
+      console.log(token);
+
+   const handleBook = (e) => {
+     e.preventDefault();
+     axios({
+       method: "POST",
+       url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
+
+       formData: data,
+
+       headers: {
+         Authorization: `Bearer ${token}`,
+         "Content-Type": "multipart/form-data",
+       },
+     })
+       .then((response) => {
+         console.log(response);
+         toast.success(response.data.message);
+         setTimeout(() => {}, 2000);
+       })
+       .catch((error) => {
+         console.log(error);
+         toast.error(error.message);
+       });
+   };
+  
+    const params = useParams();
+    let tourId = params.id;
+    const [backdropImage, setBackdropImage] = useState();
+
+    const [destinationImage, setDestinationImage] = useState();
+    const [destination, setDestination] = useState();
+    const [Title, setTitle] = useState();
+    const [Description, setDescription] = useState();
+    const [Duration, setDuration] = useState();
+    const [GroupSize, setGroupSize] = useState();
+    const [Price, setPrice] = useState();
+    const fetchTour = () => {
+      let token = localStorage.getItem("token");
+      axios({
+        method: "GET",
+        url: `https://holiday-planner-4lnj.onrender.com/api/v1/tour/getElement?fieldName=_id&value=${tourId}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          setDestinationImage(response?.data?.backdropImage);
+          setDestination(response?.data?.destination);
+          setTitle(response?.data?.Title);
+          setDescription(response?.data?.Description);
+          setDuration(response?.data?.Duration);
+          setGroupSize(response?.data?.GroupSize);
+          setPrice(response?.data?.Price);
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    useEffect(() => {
+      fetchTour();
+    }, []);
+
 
   return (
     <div className="tour-details">
-      <div className="tour-detail-image">
+      <div className="tour-detail-image"
+      style={{ backgroundImage: `url(${destinationImage})`}}
+
+      >
+        {/* <img src={backdropImage} alt="" /> */}
+
         <div className="text">
-          <h1 className="h1-tourdetail">Italy</h1>
+          <h1 className="h1-tourdetail">{Title}</h1>
         </div>
       </div>
 
@@ -65,7 +149,7 @@ const Tourdetail = () => {
             </div>
             <div class="tour-price">
               <div class="price-circle">
-                <h3 class="h3-title">$1200</h3>
+                <h3 class="h3-title">$ {Price}</h3>
                 <p>Per Person</p>
               </div>
             </div>
@@ -76,11 +160,11 @@ const Tourdetail = () => {
               <ul class="info-list">
                 <li>
                   <FontAwesomeIcon icon="clock" />
-                  <span class="text">2 days</span>
+                  <span class="text">{Duration}</span>
                 </li>
                 <li>
                   <FontAwesomeIcon icon="user-friends" />
-                  <span class="text">6 People</span>
+                  <span class="text">{GroupSize}</span>
                 </li>
                 <li>
                   <FontAwesomeIcon icon="user-plus" />
@@ -88,7 +172,7 @@ const Tourdetail = () => {
                 </li>
                 <li>
                   <FontAwesomeIcon icon="map-marker-alt" />
-                  <span class="text">Greece</span>
+                  <span class="text">{destination}</span>
                 </li>
                 <li>
                   <FontAwesomeIcon icon="sun" />
@@ -100,7 +184,8 @@ const Tourdetail = () => {
 
           <div className="tour-description">
             <p style={{ color: "" }}>
-              I should be incapable of drawing a single stroke at the present
+              {Description}
+              {/* I should be incapable of drawing a single stroke at the present
               moment; and yet I feel that I never was a greater artist than now.
               When, while the lovely valley teems with vapour around me, and the
               meridian sun strikes the upper surface of the impenetrable foliage
@@ -115,7 +200,7 @@ const Tourdetail = () => {
               when I hear the buzz of the little world among the stalks, and
               grow familiar with the countless indescribable forms of the
               insects and flies, then I feel the presence of the Almighty, who
-              formed us in his own image, and the breath
+              formed us in his own image, and the breath */}
             </p>
             <div className="video">
               <video controls width="640" height="360">
@@ -167,11 +252,23 @@ const Tourdetail = () => {
                 type="text"
                 id="fullname"
                 placeholder="Enter your full name"
+                value={fullName}
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                }}
               />
             </div>
 
             <div className="form-group">
-              <input type="email" id="email" placeholder="Enter your email" />
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </div>
 
             <div className="form-group">
@@ -179,6 +276,10 @@ const Tourdetail = () => {
                 type="email"
                 id="confirmemail"
                 placeholder="Confirm your email"
+                value={confirmemail}
+                onChange={(e) => {
+                  setConfirmemail(e.target.value);
+                }}
               />
             </div>
 
@@ -187,6 +288,31 @@ const Tourdetail = () => {
                 type="tel"
                 id="phone"
                 placeholder="Enter your phone number"
+                value={phone}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="date"
+                value={date}
+                onChange={(e) => {
+                  setDate(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="number"
+                placeholder="number of ticket"
+                value={ticket}
+                onChange={(e) => {
+                  setTicket(e.target.value);
+                }}
               />
             </div>
 
@@ -195,10 +321,18 @@ const Tourdetail = () => {
                 style={{ height: "80px", width: "300px" }}
                 id="message"
                 placeholder="Your message"
+                value={message}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-button">
+            <button
+              onClick={handleBook}
+              type="submit"
+              className="submit-button"
+            >
               Book Now
             </button>
           </form>

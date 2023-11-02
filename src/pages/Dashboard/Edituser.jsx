@@ -1,56 +1,82 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "./Edituser.css";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios"; 
+import axios from "axios";
+import { useEffect } from "react";
 
 const Edituser = () => {
-  const navigate = useNavigate();
-  const params = useParams();
-  const userId = params.id;
+      const navigate = useNavigate();
+      const params = useParams();
+      let userId = params.id;
 
-  const [fullName, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+     const [fullName, setFullname] = useState("");
+     const [email, setEmail] = useState("");
+     const [role, setRole] = useState("");
 
-    const handleForm = (e) => {
-      e.preventDefault();
+      const [initialTour, setInitialTour] = useState({});
 
-      let token = localStorage.getItem("token");
+      const fetchUsers = () => {
+        console.log("haha");
+        let token = localStorage.getItem("token");
+        axios({
+          method: "GET",
+          url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/${userId}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            setFullname(response?.data?.fullName);
+            setEmail(response?.data?.email);
+            setRole(response?.data?.role);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
 
-      const formData = new FormData();
-      formData.append("fullname", fullName);
-      formData.append("email", email);
-      formData.append("role", role);
+      useEffect(() => {
+        fetchUsers();
+      }, []);
 
-      axios({
-        method: "PUT",
-        url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/update/${email}`,
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => {
-          console.log(response);
-          if (response.status === 200) {
+     
+
+      const handleForm = (e) => {
+        e.preventDefault();
+        console.log("Ru");
+
+        let token = localStorage.getItem("token");
+
+        const formData = new FormData();
+        formData.append("fullname", fullName);
+        formData.append("email", email);
+        formData.append("role", role);
+
+        axios({
+          method: "PUT",
+          url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/update/${email}`,
+          data: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            console.log(response);
             toast.success(response.data.message);
             setTimeout(() => {
               navigate("");
             }, 3000);
-          } else {
-            toast.error("Request failed with status code " + response.status);
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          toast.error(error.message);
-        });
-    };
-
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error(error.message);
+          });
+      };
 
  
+
   return (
     <div className="tab-edit-user">
       <div className="users-editing">
@@ -69,7 +95,8 @@ const Edituser = () => {
             type="text"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            disabled
+            // onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="role">Role</label>
           <input

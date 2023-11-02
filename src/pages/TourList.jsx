@@ -102,7 +102,7 @@
 
                         <button
                           className="butCard"
-                          onClick={() => navigate("/Tourdetail")}
+                          onClick={() => navigate(`/Tourdetail/${tour._id}`)}
                         >
                           {" "}
                           book now

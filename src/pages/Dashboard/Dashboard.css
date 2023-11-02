@@ -1,9 +1,6 @@
 .dashboard{
     display: flex;
 }
-
-
-
  .sidebar {
   width: 250px;
   height: 690px;
@@ -102,15 +99,20 @@ main .data .content-data {
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
 }
 
- 
-
  /*cart*/
 
-  .leftChartContainer{
-	height: 20%;
-  }
-  
 
+  .design-chart{
+    display: flex;
+    margin-top: 20px;
+    
+  }
+
+   .leftChartContainer, .rightChartContainer {
+    height: 50%; 
+     width: 60%;  
+}
+  
 /*-------*/
 
 .sidebar-right-side{
@@ -120,16 +122,26 @@ main .data .content-data {
 
 
 
-  /*responsive*/
 
-    @media (max-width: 768px) {
-  .dashboard {
-   display: flex;
+  @media (max-width: 768px) {
+  .dash {
+    flex-direction: column;
+    align-items: center;
+    
   }
 
-  .main{
-	margin-top: -30px;
+  .info-data {
+    flex-direction: column;
+  
   }
-   
+   .main .card .head{
+    padding: 10px;
+   }
 
+
+
+
+  .card { 
+    margin-bottom: 20px; 
+  }
 }

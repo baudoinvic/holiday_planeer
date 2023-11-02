@@ -8,10 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 
-
-
-
-
 const Edittour = () => {
   const navigate = useNavigate();
   const params = useParams();

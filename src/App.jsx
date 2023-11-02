@@ -24,6 +24,8 @@ import Addtour from "./pages/Dashboard/Addtour";
 
 import Edittour from "./pages/Dashboard/Edittour";
 import Edituser from "./pages/Dashboard/Edituser";
+import Booking from "./pages/Dashboard/Booking";
+import Editbooking from "./pages/Dashboard/Editbooking";
 
 
 
@@ -59,7 +61,7 @@ const App = () => {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Model" element={<Model />} />
             <Route path="/TourList" element={<TourList />} />
-            <Route path="/Tourdetail" element={<Tourdetail />}></Route>
+            <Route path="/Tourdetail/:id" element={<Tourdetail />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
           </Route>
 
@@ -68,10 +70,12 @@ const App = () => {
             <Route path="Users" element={<Users />} />
             <Route path="Users" element={<Users />} />
             <Route path="Tour" element={<Tour />} />
-            <Route path="Edituser" element={<Edituser/>} />
+            <Route path="Edituser/:id" element={<Edituser/>} />
             <Route path="Addtour" element={<Addtour />} />
+            <Route path="Booking" element={<Booking />} />
+            <Route path="Editbooking" element={<Editbooking/>} />
             <Route path="Edittour/:id" element={<Edittour />} />
-         
+            <Route path="Editbooking" element={<Editbooking/>} />
           </Route>
         </Routes>
       </BrowserRouter>

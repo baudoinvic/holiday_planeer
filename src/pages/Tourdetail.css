@@ -1,5 +1,5 @@
 .tour-detail-image {
-  background-image: url("https://html.geekcodelab.com/holiday-planners/assets/images/tour-detail-banner.jpg");
+  /* background-image: url("https://html.geekcodelab.com/holiday-planners/assets/images/tour-detail-banner.jpg"); */
   background-size: cover;
   background-position: center center;
   height: 580px;
@@ -15,7 +15,10 @@
 .h1-tourdetail{
   font-size: 90px;
   font-family: 'Times New Roman', Times, serif;
+  color: #2B2B2B;
 }
+
+
 
   /*tour-details-content*/
 
