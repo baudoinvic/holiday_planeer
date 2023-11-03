@@ -109,6 +109,21 @@
   }
 }
 
+ /*phone version*/
+
+   @media (max-width: 480px) {
+  
+  .images-container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .image-item {
+    flex: 0 0 100%;
+  }
+  
+}
+
 
 
 

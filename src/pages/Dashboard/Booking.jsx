@@ -48,8 +48,8 @@ const Booking = () => {
             },
           })
             .then((response) => {
-              toast.success("Item deleted successfully");
-              console.log(response, "Response");
+              toast.success("Booking deleted successfully");
+              console.log(response, "response");
             })
             .catch((error) => {
               toast.error(error.response.data.message);
@@ -68,6 +68,7 @@ const Booking = () => {
         <div className="user-container">
           <div className="user-list">
             <div className="user-row user-headers">
+              <div className="user-cell">image</div>
               <div className="user-cell">fullName</div>
               <div className="user-cell">email</div>
               <div className="user-cell">phone number</div>
@@ -97,11 +98,11 @@ const Booking = () => {
                 <div className="action-icons">
                   <BsFillTrashFill
                     style={{ cursor: "pointer", color: "red" }}
-                    onClick={handleDeleteBooking}
+                    onClick={() => handleDeleteBooking(item._id)}
                   />
 
-                  <Link to={'/dashboard/Editbooking'}>
-                    <BsFillPencilFill />
+                  <Link to={"/dashboard/Editbooking"}>
+                    <BsFillPencilFill style={{ color: "black" }} />
                   </Link>
                 </div>
               </div>

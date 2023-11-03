@@ -75,9 +75,9 @@ const Edittour = () => {
     })
       .then((response) => {
         console.log(response);
-        toast.success(response.data.message);
+        toast.success("tour successfully edited");
         setTimeout(() => {
-          navigate("");
+          navigate("/dashboard/Tour");
         }, 3000);
       })
       .catch((error) => {

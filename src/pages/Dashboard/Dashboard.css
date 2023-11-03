@@ -127,21 +127,26 @@ main .data .content-data {
   .dash {
     flex-direction: column;
     align-items: center;
-    
   }
 
   .info-data {
     flex-direction: column;
-  
   }
-   .main .card .head{
+
+  .main .card .head {
     padding: 10px;
-   }
-
-
-
-
-  .card { 
-    margin-bottom: 20px; 
   }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .card:not(:last-child) {
+    margin-bottom: 30px; 
+  }
+  .design-chart{
+    flex-direction: column;
+    width: 500px;
+  }
+ 
 }

@@ -111,4 +111,12 @@
     display: flex;
   }
 
- 
+  /*respo*/
+
+      @media (max-width: 1024px) {
+     
+         .tour-details-content{
+            flex-direction: column;
+            width: 570px;
+         }
+}

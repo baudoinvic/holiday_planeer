@@ -242,4 +242,34 @@ button {
           
         }
 
+
+         /*phone version*/
+
+          @media screen and (max-width: 580px) {
+  
+  .navbar-top {
+    flex-direction: row;
+    align-items: stretch;
+    text-align: center;
+  }
+  .contact-item {
+    margin: 10px 0;
+  }
+  .navbar-top .right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .nav-top .right a {
+    flex-direction: row;
+  }
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .navButton {
+    flex-direction: row;
+   
+  }
+}
      

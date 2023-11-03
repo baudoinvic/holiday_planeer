@@ -14,6 +14,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
   import { useState,useEffect } from 'react';
   import axios from 'axios';
  import { toast } from "react-toastify";
+ import { ToastContainer } from 'react-toastify';
  
 
  
@@ -32,54 +33,51 @@ import { Title } from 'chart.js';
 
 const Tourdetail = () => {
 
-
-   const [bookFormName, setBookFormName] = useState();
-   const [bookFormEmail, setBookFormEmail] = useState();
-   const [bookFormPhone, setBookFormPhone] = useState();
-   const [bookFormDate, setBookFormDate] = useState();
-   const [bookFormTicketsNumber, setBookFormTicketsNumber] = useState();
-
-     
-   const formData = new FormData();
-
-   formData.append("tourID, tourId");
-   formData.append("fullname", bookFormName);
-   formData.append("email", bookFormEmail)
-   formData.append("phone", bookFormPhone);
-   formData.append("date", bookFormDate);
-   formData.append("numberOfTickets", bookFormTicketsNumber);
-
-      let token = localStorage.getItem("token");
-      console.log(token);
-
-   const handleBook = (e) => {
-     e.preventDefault();
-     axios({
-       method: "POST",
-       url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
-
-       formData: data,
-
-       headers: {
-         Authorization: `Bearer ${token}`,
-         "Content-Type": "multipart/form-data",
-       },
-     })
-       .then((response) => {
-         console.log(response);
-         toast.success(response.data.message);
-         setTimeout(() => {}, 2000);
-       })
-       .catch((error) => {
-         console.log(error);
-         toast.error(error.message);
-       });
-   };
   
-    const params = useParams();
-    let tourId = params.id;
-    const [backdropImage, setBackdropImage] = useState();
+      const [bookFormName, setBookFormName] = useState();
+      const [bookFormEmail, setBookFormEmail] = useState();
+      const [bookFormPhone, setBookFormPhone] = useState();
+      const [bookFormDate, setBookFormDate] = useState();
+      const [bookFormTicketsNumber, setBookFormTicketsNumber] = useState();
+      const params = useParams();
+      let tourId = params.id;
+      const submitBooking = (e) => {
+        e.preventDefault();
+       
+        let data = new FormData();
+        data.append("tourID", tourId);
+        data.append("fullname", bookFormName);
+        data.append("email", bookFormEmail);
+        data.append("phone", bookFormPhone);
+        data.append("date", bookFormDate);
+        data.append("numberOfTickets", bookFormTicketsNumber);
+        let token = localStorage.getItem("token");
+        console.log(token);
+        axios({
+          method: "POST",
+          url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
+          data: data,
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        })
+          .then((Response) => {
+            console.log(Response);
+            toast.success(Response.data.message);
+            
+            setTimeout(() => {
+              navigate("/tour");
+            }, 2000);
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error(error.message);
+          });
+      };
 
+
+    const [backdropImage, setBackdropImage] = useState();
     const [destinationImage, setDestinationImage] = useState();
     const [destination, setDestination] = useState();
     const [Title, setTitle] = useState();
@@ -185,7 +183,7 @@ const Tourdetail = () => {
           <div className="tour-description">
             <p style={{ color: "" }}>
               {Description}
-              {/* I should be incapable of drawing a single stroke at the present
+              I should be incapable of drawing a single stroke at the present
               moment; and yet I feel that I never was a greater artist than now.
               When, while the lovely valley teems with vapour around me, and the
               meridian sun strikes the upper surface of the impenetrable foliage
@@ -200,7 +198,7 @@ const Tourdetail = () => {
               when I hear the buzz of the little world among the stalks, and
               grow familiar with the countless indescribable forms of the
               insects and flies, then I feel the presence of the Almighty, who
-              formed us in his own image, and the breath */}
+              formed us in his own image, and the breath
             </p>
             <div className="video">
               <video controls width="640" height="360">
@@ -243,7 +241,7 @@ const Tourdetail = () => {
           </div>
         </div>
 
-        <div className="tour-right">
+        <div className="tour-rigt">
           <form style={{ width: "300px" }} action="" className="right-form">
             <h2 className="form-title">FIND YOUR TOUR</h2>
 
@@ -252,9 +250,9 @@ const Tourdetail = () => {
                 type="text"
                 id="fullname"
                 placeholder="Enter your full name"
-                value={fullName}
+             
                 onChange={(e) => {
-                  setFullName(e.target.value);
+                  setBookFormName(e.target.value);
                 }}
               />
             </div>
@@ -264,33 +262,31 @@ const Tourdetail = () => {
                 type="email"
                 id="email"
                 placeholder="Enter your email"
-                value={email}
+               
                 onChange={(e) => {
-                  setEmail(e.target.value);
+                  setBookFormEmail(e.target.value);
                 }}
               />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <input
                 type="email"
                 id="confirmemail"
                 placeholder="Confirm your email"
                 value={confirmemail}
-                onChange={(e) => {
-                  setConfirmemail(e.target.value);
-                }}
+              
               />
-            </div>
+            </div> */}
 
             <div className="form-group">
               <input
                 type="tel"
                 id="phone"
                 placeholder="Enter your phone number"
-                value={phone}
+            
                 onChange={(e) => {
-                  setPhone(e.target.value);
+                  setBookFormPhone(e.target.value);
                 }}
               />
             </div>
@@ -298,9 +294,9 @@ const Tourdetail = () => {
             <div className="form-group">
               <input
                 type="date"
-                value={date}
+               
                 onChange={(e) => {
-                  setDate(e.target.value);
+                  setBookFormDate(e.target.value);
                 }}
               />
             </div>
@@ -309,9 +305,9 @@ const Tourdetail = () => {
               <input
                 type="number"
                 placeholder="number of ticket"
-                value={ticket}
+               
                 onChange={(e) => {
-                  setTicket(e.target.value);
+                  setBookFormTicketsNumbert(parseInt(e.target.value));
                 }}
               />
             </div>
@@ -321,15 +317,12 @@ const Tourdetail = () => {
                 style={{ height: "80px", width: "300px" }}
                 id="message"
                 placeholder="Your message"
-                value={message}
-                onChange={(e) => {
-                  setMessage(e.target.value);
-                }}
+               
               ></textarea>
             </div>
 
             <button
-              onClick={handleBook}
+              onClick={submitBooking}
               type="submit"
               className="submit-button"
             >
@@ -383,6 +376,7 @@ const Tourdetail = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

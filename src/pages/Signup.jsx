@@ -38,6 +38,7 @@ const Signup = () => {
       .then((response) => {
         console.log(response, "Response");
         alert("User registered successfully");
+        navigate("/Homepage")
         setIsLoading(false);
 
         // Save user information in state

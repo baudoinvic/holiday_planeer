@@ -49,7 +49,7 @@ const Users = () => {
            },
          })
            .then((response) => {
-             toast.success("Item deleted successfully");
+             toast.success("user deleted successfully");
              console.log(response, "Response");
            })
            .catch((error) => {

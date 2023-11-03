@@ -31,7 +31,8 @@ import { Navigate,useNavigate } from "react-router-dom";
         })
              .then((Response)=> {
                 console.log(Response)
-                toast.success(Response.data.message);
+                toast.success("tour is sucessfully added");
+                navigate("/dashboard/Tour")
                 // location.reload()
              })
              .catch((error)=> {
@@ -51,7 +52,7 @@ import { Navigate,useNavigate } from "react-router-dom";
            value={destination}
            onChange={(e) => setDestination(e.target.value)}
            type="text"
-           placeholder="Mention Your Next Destination"
+           placeholder="Your Destination"
          />
          <label htmlFor="">Duration</label>
          <input

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 
+
 const Edituser = () => {
       const navigate = useNavigate();
       const params = useParams();
@@ -13,15 +14,14 @@ const Edituser = () => {
      const [fullName, setFullname] = useState("");
      const [email, setEmail] = useState("");
      const [role, setRole] = useState("");
-
       const [initialTour, setInitialTour] = useState({});
 
       const fetchUsers = () => {
-        console.log("haha");
+        
         let token = localStorage.getItem("token");
         axios({
           method: "GET",
-          url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/${userId}`,
+          url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/getOne/?fieldName=_id&value=${userId}`,
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -47,26 +47,32 @@ const Edituser = () => {
         console.log("Ru");
 
         let token = localStorage.getItem("token");
+        console.log("token", token)
 
-        const formData = new FormData();
-        formData.append("fullname", fullName);
-        formData.append("email", email);
-        formData.append("role", role);
+        const data = {
+          "fullname": fullName,
+          "role": role,
+        }
 
-        axios({
+        // const formData = new FormData();
+        // formData.append("fullname", fullName);
+        // formData.append("email", email);
+        // formData.append("role", role);
+
+        axios({ 
           method: "PUT",
-          url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/update/${email}`,
-          data: formData,
+          url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/update/${userId}`,
+          data: data,
           headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         })
           .then((response) => {
             console.log(response);
-            toast.success(response.data.message);
+            toast.success("user is successfully edited");
             setTimeout(() => {
-              navigate("");
+              navigate("/dashboard/Users");
             }, 3000);
           })
           .catch((error) => {
@@ -86,16 +92,16 @@ const Edituser = () => {
           <label htmlFor="fullname">Fullname</label>
           <input
             type="text"
-            placeholder="Fullname"
+            placeholder="update Fullname"
             value={fullName}
             onChange={(e) => setFullname(e.target.value)}
           />
           <label htmlFor="email">Email</label>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="upadet email"
             value={email}
-            disabled
+            onChange={(e) => setEmail(e.target.value)}
             // onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="role">Role</label>
@@ -108,7 +114,7 @@ const Edituser = () => {
 
           <div className="ready">
             <div className="accept">
-              <button onClick={handleForm}>Edit user</button>
+              <button onClick={handleForm}>Update user</button>
             </div>
             <div className="Cancel">
               <button>Cancel</button>
