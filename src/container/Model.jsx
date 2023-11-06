@@ -55,9 +55,9 @@ const Model = ({ setMenuOpen }) => {
             <li>Contact us</li>
           </Link>
 
-          <Link to ="/dashboard">
+          {/* <Link to ="/dashboard">
             <li>Dashboard</li>
-          </Link>
+          </Link> */}
         </ul>
       </div>
     </div>

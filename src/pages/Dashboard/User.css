@@ -39,11 +39,6 @@
  
 }
 
-/* .user-cell {
-  display: flex;
-  align-items: flex-start;
-} */
-
 .user-cell:last-child {
   text-align: center; 
 }
@@ -54,4 +49,21 @@
   margin-right: 3rem;
 }
 
+ /*responsiveness*/
+  
+  @media (max-width: 768px) {
+  .user-cell {
+    flex-basis: 100%;
+  }
+
+  .action-icons {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .add-user-btn {
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
   

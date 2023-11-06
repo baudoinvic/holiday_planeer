@@ -79,7 +79,7 @@
     box-shadow: 0 0 9px rgba(15, 1, 1, 0.9);
     display: flex;
     flex-direction: column;
-    margin-left: 10%;
+    margin-left: 7%;
 }
 
 .findd{
@@ -432,28 +432,29 @@ margin-bottom: 15px;
   .tour-right {
     width: 100%;
     padding: 20px;
- 
   }
 
    .right-form {
-    /* margin-top: -20rem; */
-    /* width: 300px; */
-    margin-right: 10rem;
+     width: 300px;
+     margin-top: 10rem;
+
    }
-   
+
   .tourCards{
-   margin-top: -30rem;   
+   margin-top: -5rem;   
+
   }
    
   .tourCard{
       margin-left: 8rem;
        width: 500px;
+       padding: 20px;
   }
-
   .tour-btm{
     flex-direction: column;
-   
   }
+   
+
     }
 
    

@@ -119,4 +119,16 @@
             flex-direction: column;
             width: 570px;
          }
+
+         .tour-description{
+          width: 400px;
+         }
+      
+          video{
+            width: 400px;
+          }
+         
+         .tour-price{
+          margin-right: 11rem;
+         }
 }

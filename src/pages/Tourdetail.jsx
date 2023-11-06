@@ -16,32 +16,23 @@ import { library } from "@fortawesome/fontawesome-svg-core";
  import { toast } from "react-toastify";
  import { ToastContainer } from 'react-toastify';
  
-
- 
-import {
-  faClock,
-  faUserFriends,
-  faUserPlus,
-  faMapMarkerAlt,
-  faSun,
-} from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Title } from 'chart.js';
 
- library.add(faClock, faUserFriends, faUserPlus, faMapMarkerAlt, faSun);
 
 
-const Tourdetail = () => {
 
-     
+     const Tourdetail = () => {
+
       const [bookFormName, setBookFormName] = useState();
       const [bookFormEmail, setBookFormEmail] = useState();
       const [bookFormPhone, setBookFormPhone] = useState();
       const [bookFormDate, setBookFormDate] = useState();
       const [bookFormTicketsNumber, setBookFormTicketsNumber] = useState();
+
       const params = useParams();
       let tourId = params.id;
-      const submitBooking = (e) => {
+      const handlesubmit =  (e) => {
         e.preventDefault();
        
         let data = new FormData();
@@ -51,24 +42,26 @@ const Tourdetail = () => {
         data.append("phone", bookFormPhone);
         data.append("date", bookFormDate);
         data.append("numberOfTickets", bookFormTicketsNumber);
+
         let token = localStorage.getItem("token");
-        console.log('where is token',token);
+        console.log(token);
         axios({
           method: "POST",
           url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
           data: data,
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         })
-          .then((Response) => {
-            console.log(Response);
+          .then((response) => {
+            console.log(response);
             toast.success("Thanks for booking");
             
             setTimeout(() => {
-              navigate("");
+              navigate("/");
             }, 2000);
+            console.log(response)
           })
           .catch((error) => {
             console.log(error);
@@ -76,6 +69,7 @@ const Tourdetail = () => {
           });
       };
 
+       /*-------------------------------------------------------------------------------------------------------*/
 
     const [backdropImage, setBackdropImage] = useState();
     const [destinationImage, setDestinationImage] = useState();
@@ -85,6 +79,7 @@ const Tourdetail = () => {
     const [Duration, setDuration] = useState();
     const [GroupSize, setGroupSize] = useState();
     const [Price, setPrice] = useState();
+
     const fetchTour = () => {
       let token = localStorage.getItem("token");
       axios({
@@ -242,7 +237,7 @@ const Tourdetail = () => {
         </div>
 
         <div className="tour-rigt">
-          <form style={{ width: "300px" }} action="" className="right-form">
+          <form  style={{ width: "300px" }} action="" className="right-form">
             <h2 className="form-title">FIND YOUR TOUR</h2>
 
             <div className="form-group">
@@ -269,15 +264,6 @@ const Tourdetail = () => {
               />
             </div>
 
-            {/* <div className="form-group">
-              <input
-                type="email"
-                id="confirmemail"
-                placeholder="Confirm your email"
-                value={confirmemail}
-              
-              />
-            </div> */}
 
             <div className="form-group">
               <input
@@ -321,8 +307,8 @@ const Tourdetail = () => {
               ></textarea>
             </div>
 
-            <button
-              onClick={submitBooking}
+            <button onClick={handlesubmit}
+            
               type="submit"
               className="submit-button"
             >
