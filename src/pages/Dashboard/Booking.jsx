@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Booking = () => {
   const [tourDetails, setTourDetails] = useState(null);
-
+  const [book, setBook] = useState();
   const [Editbooking,setEditbooking] = useState();
 
   const fetchTourDetails = () => {
@@ -101,7 +101,7 @@ const Booking = () => {
                     onClick={() => handleDeleteBooking(item._id)}
                   />
 
-                  <Link to={"/dashboard/Editbooking"}>
+                  <Link to={`/dashboard/Editbooking/${item._id}`}>
                     <BsFillPencilFill style={{ color: "black" }} />
                   </Link>
                 </div>

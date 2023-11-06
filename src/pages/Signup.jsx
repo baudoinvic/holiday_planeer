@@ -67,7 +67,7 @@ const Signup = () => {
       <div className="login-container">
         <div className="login-form">
           {error && <p className="error-message">{error}</p>}
-          <form>
+          <form style={{marginLeft: '80px'}}>
             <h2 style={{marginTop: '-15px'}}>Signup</h2>
             <div className="form-group">
               <label>Fullname</label>

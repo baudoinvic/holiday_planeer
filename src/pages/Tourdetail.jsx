@@ -52,22 +52,22 @@ const Tourdetail = () => {
         data.append("date", bookFormDate);
         data.append("numberOfTickets", bookFormTicketsNumber);
         let token = localStorage.getItem("token");
-        console.log(token);
+        console.log('where is token',token);
         axios({
           method: "POST",
           url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
           data: data,
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
           },
         })
           .then((Response) => {
             console.log(Response);
-            toast.success(Response.data.message);
+            toast.success("Thanks for booking");
             
             setTimeout(() => {
-              navigate("/tour");
+              navigate("");
             }, 2000);
           })
           .catch((error) => {

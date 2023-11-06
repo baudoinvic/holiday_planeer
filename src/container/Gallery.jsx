@@ -10,7 +10,7 @@ const Gallery = () => {
   return (
 
       <div className="images-container">
-        <div className="images-row">
+       
           <div className="image-item">
             <img
               src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image2.jpg"
@@ -35,10 +35,10 @@ const Gallery = () => {
 
             <div className="icon-column">
               <FontAwesomeIcon
-                style={{ marginTop: "5px", marginRight: "13rem" }}
+           
                 icon={faClock}
               />
-              <FontAwesomeIcon style={{ marginTop: "-20px" }} icon={faUsers} />
+              <FontAwesomeIcon  icon={faUsers} />
             </div>
 
             <h2>
@@ -70,10 +70,10 @@ const Gallery = () => {
 
             <div className="icon-column">
               <FontAwesomeIcon
-                style={{ marginTop: "5px", marginRight: "13rem" }}
+                
                 icon={faClock}
               />
-              <FontAwesomeIcon style={{ marginTop: "-20px" }} icon={faUsers} />
+              <FontAwesomeIcon  icon={faUsers} />
             </div>
 
             <h2>
@@ -105,10 +105,10 @@ const Gallery = () => {
 
             <div className="icon-column">
               <FontAwesomeIcon
-                style={{ marginTop: "5px", marginRight: "13rem" }}
+             
                 icon={faClock}
               />
-              <FontAwesomeIcon style={{ marginTop: "-20px" }} icon={faUsers} />
+              <FontAwesomeIcon  icon={faUsers} />
             </div>
 
             <h2>
@@ -140,17 +140,17 @@ const Gallery = () => {
 
             <div className="icon-column">
               <FontAwesomeIcon
-                style={{ marginTop: "5px", marginRight: "13rem" }}
+               
                 icon={faClock}
               />
-              <FontAwesomeIcon style={{ marginTop: "-20px" }} icon={faUsers} />
+              <FontAwesomeIcon  icon={faUsers} />
             </div>
 
             <h2>
               $650 <button className="special-button">BOOK NOW</button>{" "}
             </h2>
           </div>
-        </div>
+       
       </div>
       
    

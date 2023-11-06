@@ -58,8 +58,8 @@ const Testimony = () => {
         <div className="testimonial-text">
           <div className="testimonial-desc">
             <div className="desc-test">
-              <h3 style={{ color: "#C29D59" }}>Latest News</h3>
-              <h1>Learn More About Tours</h1>
+              <h4 style={{ color: "#C29D59" }}>Latest News</h4>
+              <h3>Learn More About Tours</h3>
             </div>
           </div>
         </div>

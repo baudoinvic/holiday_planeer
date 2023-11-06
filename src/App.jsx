@@ -63,6 +63,7 @@ const App = () => {
             <Route path="/TourList" element={<TourList />} />
             <Route path="/Tourdetail/:id" element={<Tourdetail />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
+            
           </Route>
 
           <Route path="/dashboard" element={<Dashboard />}>
@@ -73,9 +74,9 @@ const App = () => {
             <Route path="Edituser/:id" element={<Edituser/>} />
             <Route path="Addtour" element={<Addtour />} />
             <Route path="Booking" element={<Booking />} />
-            <Route path="Editbooking" element={<Editbooking/>} />
+            <Route path="Editbooking/:id" element={<Editbooking/>} />
             <Route path="Edittour/:id" element={<Edittour />} />
-            <Route path="Editbooking" element={<Editbooking/>} />
+            {/* <Route path="Editbooking" element={<Editbooking/>} /> */}
           </Route>
         </Routes>
       </BrowserRouter>

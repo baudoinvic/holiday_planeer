@@ -7,71 +7,73 @@ import { useNavigate, useParams } from "react-router-dom";
 const Editbooking = () => {
    
 
-    const navigate = useNavigate();
-    const params = useParams();
-    let bookId = params.id;
-    const [bookName, setBookName] = useState();
-    const [bookEmail, setBookEmail] = useState();
-    const [bookPhone, setBookPhone] = useState();
-    const [bookDate, setBookDate] = useState();
-    const [bookTickets, setBookTickets] = useState();
-    const fetchBook = () => {
-      let token = localStorage.getItem("token");
-      axios({
-        method: "GET",
-        url: `https://holiday-planner-4lnj.onrender.com/api/v1/booking/${bookId}`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => {
-          setBookName(response?.data?.fullname);
-          setBookEmail(response?.data?.email);
-          setBookPhone(response?.data?.phone);
-          setBookDate(response?.data?.date);
-          setBookTickets(response?.data?.numberOfTickets);
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    useEffect(() => {
-      fetchBook();
-    }, []);
-    const submitNewBook = (e) => {
-      e.preventDefault();
-      // setIsLoading(true);
-      const data = {
-        fullname: bookName,
-        email: bookEmail,
-        phone: bookPhone,
-        date: bookDate,
-        numberOfTickets: bookTickets,
-      };
-      let token = localStorage.getItem("token");
-      axios({
-        method: "PUT",
-        url: `https://holiday-planner-4lnj.onrender.com/api/v1/booking/update/${bookId}`,
-        data: data,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((Response) => {
-          console.log(Response);
-          toast.success(Response.data.message);
-          setTimeout(() => {
-            navigate("/dashboard/Booking");
-          }, 2000);
-        })
-        .catch((error) => {
-          console.log(error);
-          toast.error(error.message);
-        });
-    };
+     const navigate = useNavigate();
+     const params = useParams();
+     let tourId = params.id;
+     const [fullName, setFullName] = useState("");
+     const [bookEmail, setBookEmail] = useState("");
+     const [bookPhone, setBookPhone] = useState("");
+     const [bookTicket, setBookTicket] = useState("");
+     const [bookDate, setBookDate] = useState("");
+     const fetchBook = () => {
+       console.log(tourId);
+       let token = localStorage.getItem("token");
+       axios({
+         method: "GET",
+         url: `https://holiday-planner-4lnj.onrender.com/api/v1/booking/${tourId}`,
+         headers: {
+           Authorization: `Bearer ${token}`,
+         },
+       })
+         .then((response) => {
+           setFullName(response?.data?.fullname);
+           setBookEmail(response?.data?.email);
+           setBookPhone(response?.data?.phone);
+           setBookTicket(response?.data?.ticket);
+           setBookDate(response?.data?.date);
+         })
+         .catch((error) => {
+           console.log(error);
+         });
+     };
+     useEffect(() => {
+       fetchBook();
+     }, []);
+     const handleForm = (e) => {
+       e.preventDefault();
 
+       const data = {
+         tourId: tourId,
+         fullname: fullName,
+         email: bookEmail,
+         phone: bookPhone,
+         date: bookDate,
+         numberOfTickets: bookTicket,
+       };
+       let token = localStorage.getItem("token");
+       axios({
+         method: "PUT",
+         url: `https://holiday-planner-4lnj.onrender.com/api/v1/booking/update/${tourId}`,
+         data: data,
+         headers: {
+           "Content-Type": "application/json",
+           Authorization: `Bearer ${token}`,
+         },
+       })
+         .then((response) => {
+           console.log(response);
+           toast.success(response.data.message);
+           toast.success("Booking updated");
+           setTimeout(() => {
+             navigate(`/Dashboard/Booking`);
+           }, 3000);
+         })
+         .catch((error) => {
+           console.log(error);
+           toast.error(error.message);
+         
+         });
+     };
 
   return (
     <div className="booking-edit">
@@ -84,8 +86,8 @@ const Editbooking = () => {
           <div className="form-group">
             <input
               type="text"
-              value={bookName}
-              onChange={(e) => setBookName(e.target.value)}
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
             />
           </div>
 
@@ -120,12 +122,12 @@ const Editbooking = () => {
           <div className="form-group">
             <input
               type="number"
-              value={bookTickets}
-              onChange={(e) => setBookTickets(e.target.value)}
+              value={bookTicket}
+              onChange={(e) => setBookTicket(e.target.value)}
             />
           </div>
 
-          <button onClick={submitNewBook}>Updating Booking</button>
+          <button onClick={handleForm}>Updating Booking</button>
         </form>
       </div>
     </div>

@@ -50,8 +50,9 @@ const Edituser = () => {
         console.log("token", token)
 
         const data = {
-          "fullname": fullName,
+          "fullName": fullName,
           "role": role,
+          "email": email,
         }
 
         // const formData = new FormData();
@@ -99,10 +100,10 @@ const Edituser = () => {
           <label htmlFor="email">Email</label>
           <input
             type="text"
-            placeholder="upadet email"
+            placeholder="update email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            // onChange={(e) => setEmail(e.target.value)}
+           
           />
           <label htmlFor="role">Role</label>
           <input

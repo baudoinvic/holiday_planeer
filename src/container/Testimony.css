@@ -2,9 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
-    margin-top: 40%;
-
+    margin-top: 8rem;
 }
 
 .testimonial-content {
@@ -16,7 +14,7 @@
   }
   
   .testimonial-image {
-    width: 240px; 
+    width: 260px; 
     margin-right: 90px; 
   }
 
@@ -73,18 +71,24 @@
       justify-content: space-around;
      
 
+
     }
      .desc-test{
       
       margin-top: 5rem;
      }
 
-  
-
      .testimonial-button{
       margin-right: 14rem;
      }
 
+      .desc-test h3{
+        font-size: 30px;
+      }
+     
+       .desc-test h4{
+        font-size: 20px;
+       }
 
 
    /*images column*/
@@ -180,44 +184,41 @@
  /*responsiveness*/
 
 
-  @media (max-width: 768px) {
-   .testimonial-container {
-  
-  }
- 
-    
-  
-  
-  /* .testimonial-content img{
-    margin-top: 5rem;
-  } */
-
-    .testimonial{
-      flex-direction: column;
-      margin-top: 7rem;
-    } 
-
-       .testimonial-text h1{
-        margin-right: 2rem;
-       }
-
-       .testimonial-text h3{
-        margin-left: 1rem;
-       }
-
-      .testimonial-button{
-        margin-left: 2rem;
-        margin-top: -2rem;
-      }
-   
-  
-    .intro h3{
-      margin-top: 10rem;
-    }
-
-
-  .techup {
+ @media (max-width: 768px) {
+  .testimonial-container {
     flex-direction: column;
+    margin-top: 4rem;
+  }
+
+  .testimonial-content {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+
+  .testimonial-image {
+    margin-right: 0;
+  }
+
+  .testimonial-box {
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+
+  .testimonial-slide {
+    font-size: 18px;
+  }
+
+  .testimonial {
+    /* flex-direction: column; */
+    align-items: center;
+    margin-top: -5rem;
+    
+  }
+
+  .testimonial-button {
+    margin-right: 0;
+    margin-top: 2rem;
   }
 
   .planer-image {
@@ -225,27 +226,14 @@
     margin-left: 0;
     margin-right: 0;
   }
-
-  .planner-column h3 {
-    margin-top: 0;
-  }
-
-  /* Full Last Section */
-  .the-last-one {
-    flex-direction: column;
-    margin-right: 5rem;
-  }
-
-  .full-column {
-    margin-bottom: 20px;
    
-  }
-
-   .planer-image{
-    width: 400px;
-    margin-right: 4rem;
+   .planner-hover{
+    width: 90%;
    }
 
+  .the-last-one {
+    margin-right: 23rem;
+    flex-direction: column;
+  }
 }
-
  

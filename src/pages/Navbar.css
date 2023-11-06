@@ -151,9 +151,6 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-  width: 90%;
-  margin-left: 10%;
-  margin-left: 5%;
   height: 80px;
  
 }
@@ -231,12 +228,12 @@ button {
            
             .navBar{
               display: flex;
-              flex-direction: row;
-              width: 95%;
+              /* flex-direction: row; */
+           
             }
             .navButton{
-              flex-direction: row;
-              /* margin-top: 20px; */
+              /* flex-direction: row;
+             margin-right: 5rem; */
            
             }
           
@@ -245,12 +242,12 @@ button {
 
          /*phone version*/
 
-          @media screen and (max-width: 580px) {
+  @media screen and (max-width: 768px) {
   
   .navbar-top {
     flex-direction: row;
     align-items: stretch;
-    text-align: center;
+  
   }
   .contact-item {
     margin: 10px 0;
@@ -262,13 +259,16 @@ button {
   .nav-top .right a {
     flex-direction: row;
   }
+
+   
+
   .navBar {
     display: flex;
     flex-direction: row;
     width: 100%;
   }
   .navButton {
-    flex-direction: row;
+    display: flex;
    
   }
 }

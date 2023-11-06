@@ -43,7 +43,7 @@ const Login = () => {
       <div className="login-container">
         <div className="login-form">
           {error && <p className="error-message">{error}</p>}
-          <form action="" className="user-login" id="form" onSubmit={handleLogin}>
+          <form style={{marginLeft: '80px'}} action="" className="user-login" id="form" onSubmit={handleLogin}>
             <h2 className="login">Login</h2>
             <div className="form-group">
               <label>Email</label>
