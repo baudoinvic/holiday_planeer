@@ -53,7 +53,10 @@ const Dashboard = () => {
               </Link>
             </li>
 
-            <Link style={{ color: " #2B2B2B", textDecoration: "none" }} to="/dashboard/Booking">
+            <Link
+              style={{ color: " #2B2B2B", textDecoration: "none" }}
+              to="/dashboard/Booking"
+            >
               <li>
                 <FontAwesomeIcon icon={faComments} />
                 <a href="">Booking</a>
@@ -70,7 +73,7 @@ const Dashboard = () => {
             <li style={{ marginTop: "20rem" }}>
               <FaSignOutAlt />
               <span onClick={() => navigate("/login")}>
-                <a href="">Logout</a>
+                <Link to="/Login">Logout</Link>
               </span>
             </li>
           </ul>
