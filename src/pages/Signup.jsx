@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -67,14 +69,13 @@ const Signup = () => {
       <div className="login-container">
         <div className="login-form">
           {error && <p className="error-message">{error}</p>}
-          <form style={{marginLeft: '80px'}}>
-            <h2 style={{marginTop: '-15px'}}>Signup</h2>
+          <form style={{ marginLeft: "80px" }}>
+            <h2 style={{ marginTop: "-15px" }}>Signup</h2>
             <div className="form-group">
               <label>Fullname</label>
               <input
                 type="text"
                 value={fullname}
-            
                 onChange={(e) => setFullname(e.target.value)}
               />
             </div>
@@ -83,7 +84,6 @@ const Signup = () => {
               <input
                 type="email"
                 value={email}
-             
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -92,7 +92,6 @@ const Signup = () => {
               <input
                 type="password"
                 value={password}
-            
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
@@ -118,7 +117,7 @@ const Signup = () => {
               Signup
             </button>
             <p className="signup-link">
-              Already have an account? <a href="/login">Login here</a>
+              Already have an account? <Link to = "/Login">Login here</Link>
             </p>
           </form>
         </div>

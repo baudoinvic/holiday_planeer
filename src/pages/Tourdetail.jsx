@@ -33,7 +33,7 @@ import { Title } from 'chart.js';
 
 const Tourdetail = () => {
 
-  
+     
       const [bookFormName, setBookFormName] = useState();
       const [bookFormEmail, setBookFormEmail] = useState();
       const [bookFormPhone, setBookFormPhone] = useState();
@@ -307,7 +307,7 @@ const Tourdetail = () => {
                 placeholder="number of ticket"
                
                 onChange={(e) => {
-                  setBookFormTicketsNumbert(parseInt(e.target.value));
+                  setBookFormTicketsNumber(parseInt(e.target.value));
                 }}
               />
             </div>
