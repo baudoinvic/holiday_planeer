@@ -38,7 +38,7 @@ const Users = () => {
 
   /*delete user */
 
-     const handleDeleteUser = (id) => {
+     const handleDeleteUser = async (id) => {
        if (window.confirm("Are you sure you want to delete?")) {
          let token = localStorage.getItem("token");
          axios({
