@@ -29,6 +29,7 @@ import { Title } from 'chart.js';
       const [bookFormPhone, setBookFormPhone] = useState();
       const [bookFormDate, setBookFormDate] = useState();
       const [bookFormTicketsNumber, setBookFormTicketsNumber] = useState();
+      
 
       const params = useParams();
       let tourId = params.id;
@@ -42,6 +43,9 @@ import { Title } from 'chart.js';
         data.append("phone", bookFormPhone);
         data.append("date", bookFormDate);
         data.append("numberOfTickets", bookFormTicketsNumber);
+
+       
+
 
         let token = localStorage.getItem("token");
         console.log(token);
@@ -79,6 +83,17 @@ import { Title } from 'chart.js';
     const [Duration, setDuration] = useState();
     const [GroupSize, setGroupSize] = useState();
     const [Price, setPrice] = useState();
+    
+    const [discount, setDiscunt] = useState("");
+    const [tourtype, setTourtype] = useState("");
+    const [departure, setDeparture] = useState("");
+    const [seats, setSeats] = useState("");
+    const [frommonth, setFrommonth] = useState("");
+    const [tomonth, setTomonth] = useState(""); //
+    const [departureTime, setDepartureTime] = useState("");
+    const [returnTime, setReturnTime] = useState(""); 
+
+
 
     const fetchTour = () => {
       let token = localStorage.getItem("token");
@@ -97,6 +112,17 @@ import { Title } from 'chart.js';
           setDuration(response?.data?.Duration);
           setGroupSize(response?.data?.GroupSize);
           setPrice(response?.data?.Price);
+
+          setDiscunt(response?.data?.discount);
+          setTourtype(response?.data?.tourtype);
+          setDeparture(response?.data?.departure);
+          setSeats(response?.data?.seats);
+          setFrommonth(response?.data?.frommonth);
+          setTomonth(response?.data?.tomonth);
+          setDepartureTime(response?.data?.departureTime);
+          setReturnTime(response?.data?.returnTime);
+
+
           console.log(response);
         })
         .catch((error) => {

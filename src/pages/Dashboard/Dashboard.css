@@ -1,7 +1,7 @@
 .dashboard{
     display: flex;
-    
 }
+
  .sidebar {
   width: 250px;
   height: 690px;
@@ -57,6 +57,11 @@
   margin-top: 46px;
   display: flex;
 }
+ 
+.dash{
+  margin-left: 7rem;
+}
+
 
   .dashboard-title{
 	margin-right: 3rem;

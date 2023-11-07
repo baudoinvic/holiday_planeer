@@ -1,56 +1,35 @@
- /* tour right side*/
- 
- .sidebar-right-side{
-    display: flex;
-    margin-left: 8rem;
-     
+.todo{
+  margin-top: 5%;
+}
+
+
+ .gone{
+  display: flex;
  }
 
-  .total-booking{
-    padding: 40px; 
-   
-  }
+  .adding-tour{
+  display: flex;
+  float:right;
+  background-color: rgb(194, 157, 89);
+  justify-content: flex-end;
+  padding: 15px 15px;
+  margin-right: 10rem;
+  margin-bottom: 50px;
+  color: white;
+  margin-top: -5px;
+  cursor: pointer;
+}
 
-  .total-booking span{
-     padding: 60px;
-     font-size: 25px;
-     
-  }
-
-
-    
-/* Style table cells */
-.table th, .table td {
-  padding: 15px;
-  text-align: left;
-  border: 1px solid #ccc; 
-  white-space: nowrap; 
+ .got-trow{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
   
-}
-
-/* Style the table header */
-.table th {
-  color: #333; 
-  
-}
-
-.user-container{
-    width: 950px;
-
-}
-
- .todo{
-  margin-top: 5rem;
  }
-
-.table td:nth-child(2),
-.table th:nth-child(2),
-.table td:nth-child(3),
-.table th:nth-child(3) {
-  text-align: center;
-   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-
-
-
+  .cellule{
+    padding: 15px;
+  }
+  

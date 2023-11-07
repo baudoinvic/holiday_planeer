@@ -44,16 +44,15 @@
   margin-left: auto;
 }
 
-
- @media (min-width: 768px) {
-  .image-item {
-    width: calc(50% - 40px); 
+@media (min-width: 768px) {
+  .image-item-medium {
+    flex: 0 0 100%;
+    background-color: red;
   }
- 
 }
 
 @media (min-width: 1024px) {
   .image-item {
-    width: calc(80.70% - 40px); 
+    flex: 0 0 30%;
   }
 }

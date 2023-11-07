@@ -2,10 +2,15 @@
 
  .add-tour form {
    width: 500px ;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
-
 }
+   
+.add-tour{
+  display: flex;
+  margin-left: 5rem;
+}
+
 
  .add-tour input {
   width: 80%;
@@ -14,6 +19,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border 0.3s;
+ 
  }
 
  .add-tour label {

@@ -1,0 +1,23 @@
+.ahead{
+    display: flex;
+   
+}
+  
+.booking{
+    margin-left: 5rem;
+    margin-top: 4rem;
+}
+
+
+ .now-fill{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  border-radius: 5px;
+  /* padding: 10px;
+  margin: 10px; */
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+ }
+  
+ .books{
+    padding: 50px;
+ }

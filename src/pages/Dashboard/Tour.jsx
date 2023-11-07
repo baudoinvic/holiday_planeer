@@ -7,11 +7,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { GrAddCircle } from "react-icons/gr";
 
-
-
- /*Edit tour */
-
-
+/*Edit tour */
 
 const Tour = () => {
   const navigate = useNavigate();
@@ -42,9 +38,7 @@ const Tour = () => {
     fetchTour();
   }, []);
 
-
-     /*delete tour */
-
+  /*delete tour */
 
   const deleteTour = async (id) => {
     if (window.confirm("Do you want to delete this Tour?")) {
@@ -54,12 +48,13 @@ const Tour = () => {
         );
         if (data) {
           toast.success("Tour successfully deleted");
-        
+
           fetchTour();
         } else {
           toast.error("Failed to delete the Tour");
         }
-      } catch (error) {l
+      } catch (error) {
+        l;
         if (error.response && error.response.data) {
           const errorMessage = error.response.data.message;
           toast.error("Error in deleting the Tour: " + errorMessage);
@@ -67,38 +62,45 @@ const Tour = () => {
           toast.error("An error occurred while deleting the Tour");
         }
       }
-        
     }
   };
-   
 
   return (
     <div className="todo">
       <ToastContainer />
       <Link to="/dashboard/Addtour">
-        <nav className="add-user-btn">
+        <nav className="adding-tour">
           {" "}
-          <GrAddCircle style={{marginRight: '20px'}} />
+          <GrAddCircle style={{ marginRight: "20px" }} />
           Add Tour
         </nav>
       </Link>
 
       <h1 className="title">Tours</h1>
 
-      <div className="user-container">
-        <div className="user-list">
-          <div className="user-row user-headers">
-            <div className="user-cell">img</div>
-            <div className="user-cell">Destination</div>
-            <div className="user-cell">Duration</div>
-            <div className="user-cell">Group Size</div>
-            <div className="user-cell">Price</div>
-            <div className="user-cell">Action</div>
+      <div className="fetching">
+        <div className="got-trow">
+          <div className="gone">
+            <div className="cellule">img</div>
+            <div className="cellule">Destination</div>
+            <div className="cellule">Description</div>
+            <div className="cellule">Duration</div>
+            <div className="cellule">Groupsize</div>
+            <div className="cellule">Discount</div>
+            <div className="cellule">Price</div>
+            <div className="cellule">Tourtype</div>
+            <div className="cellule">Departure</div>
+            <div className="cellule">Seats</div>
+            <div className="cellule">Frommonth</div>
+            <div className="cellule">Tomonth</div>
+            <div className="cellule">Departuretime</div>
+            <div className="cellule">Returntime</div>
+            <div className="cellule">Action</div>
           </div>
         </div>
 
         {tours.map((item, idx) => (
-          <div key={idx} className="user-row">
+          <div key={idx} className="gone">
             <div>
               <img
                 style={{ width: "100px" }}
@@ -106,11 +108,21 @@ const Tour = () => {
                 alt="img"
               />
             </div>
-            <div className="user-cell">{item.destination}</div>
-            <div className="user-cell">{item.Duration}</div>
-            <div className="user-cell">{item.GroupSize}</div>
-            <div className="user-cell">{item.Price}</div>
-            <div className="user-cell">
+            <div className="cellule">{item.destination}</div>
+            <div className="cellule">{item.Description}</div>
+            <div className="cellule">{item.Duration}</div>
+            <div className="cellule">{item.GroupSize}</div>
+            <div className="cellule">{item.Discount}</div>
+            <div className="cellule">{item.Price}</div>
+            <div className="cellule">{item.Tourtype}</div>
+            <div className="cellule">{item.Departure}</div>
+            <div className="cellule">{item.Seats}</div>
+
+            <div className="cellule">{item.fromMonth}</div>
+            <div className="cellule">{item.toMonth}</div>
+            <div className="cellule">{item.departureTime}</div>
+            <div className="cellule">{item.returntTime}</div>
+            <div className="cellule">
               <div className="action-icons">
                 <BsFillTrashFill
                   onClick={() => deleteTour(item._id)}

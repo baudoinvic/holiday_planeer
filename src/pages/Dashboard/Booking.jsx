@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router-dom"; 
 import axios from "axios";
+import './Booking.css'
+
 
 import { ToastContainer, toast } from "react-toastify"; 
 
@@ -62,22 +64,21 @@ const Booking = () => {
 
   return (
     <div className="booking">
-      <div className="todo">
+      <div className="here-book">
         <h1 className="title">Bookings</h1>
 
-        <div className="user-container">
-          <div className="user-list">
-            <div className="user-row user-headers">
-              <div className="user-cell">image</div>
-              <div className="user-cell">fullName</div>
-              <div className="user-cell">email</div>
-              <div className="user-cell">phone number</div>
-              <div className="user-cell">Date</div>
-              <div className="user-cell">number of ticket</div>
-              <div className="user-cell">Action</div>
+          <div className="now-fill">
+            <div className="ahead">
+              <div className="books">image</div>
+              <div className="books">fullName</div>
+              <div className="books">email</div>
+              <div className="books">phone number</div>
+              <div className="books">Date</div>
+              <div className="books">number of ticket</div>
+              <div className="books">Action</div>
             </div>
           </div>
-        </div>
+       
 
         {tourDetails &&
           tourDetails.map((item, idx) => (
@@ -89,12 +90,12 @@ const Booking = () => {
                   alt="img"
                 />
               </div>
-              <div className="user-cell">{item.fullname}</div>
-              <div className="user-cell">{item.email}</div>
-              <div className="user-cell">{item.phone}</div>
-              <div className="user-cell">{item.date}</div>
-              <div className="user-cell">{item.numberOfTicket}</div>
-              <div className="user-cell">
+              <div className="books">{item.fullname}</div>
+              <div className="books">{item.email}</div>
+              <div className="books">{item.phone}</div>
+              <div className="books">{item.date}</div>
+              <div className="books">{item.numberOfTicket}</div>
+              <div className="books">
                 <div className="action-icons">
                   <BsFillTrashFill
                     style={{ cursor: "pointer", color: "red" }}
