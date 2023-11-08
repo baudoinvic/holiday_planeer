@@ -116,40 +116,7 @@ const Gallery = () => {
             </h2>
           </div>
 
-          <div className="image-item">
-            <img
-              src="https://html.geekcodelab.com/holiday-planners/assets/images/tour-box-image2.jpg"
-              alt="Switzerland"
-            />
-            <button
-              style={{
-                fontFamily: "Times new roman sans serif",
-                marginRight: "45%",
-              }}
-            >
-              Poland
-            </button>
-            <h4>
-              Holiday planners is a world-leading online tour booking platform
-            </h4>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts. Separated
-              they live in Bookmarksgrove.
-            </p>
-
-            <div className="icon-column">
-              <FontAwesomeIcon
-               
-                icon={faClock}
-              />
-              <FontAwesomeIcon  icon={faUsers} />
-            </div>
-
-            <h2>
-              $650 <button className="special-button">BOOK NOW</button>{" "}
-            </h2>
-          </div>
+        
        
       </div>
       
