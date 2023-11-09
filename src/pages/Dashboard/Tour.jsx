@@ -7,15 +7,16 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { GrAddCircle } from "react-icons/gr";
 
-/*Edit tour */
-
 const Tour = () => {
   const navigate = useNavigate();
   const [tours, setTours] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  /*fetching tour*/
 
   const fetchTour = () => {
     let token = localStorage.getItem("token");
-    console.log(token);
     axios({
       url: "https://holiday-planner-4lnj.onrender.com/api/v1/tour/",
       method: "GET",
@@ -24,9 +25,7 @@ const Tour = () => {
       },
     })
       .then((response) => {
-        console.log(response.data);
         setTours(response.data);
-        navigate("/dashboard/tour");
         toast.success(response.data.message);
       })
       .catch((error) => {
@@ -38,7 +37,7 @@ const Tour = () => {
     fetchTour();
   }, []);
 
-  /*delete tour */
+    /*delete tour*/
 
   const deleteTour = async (id) => {
     if (window.confirm("Do you want to delete this Tour?")) {
@@ -48,13 +47,11 @@ const Tour = () => {
         );
         if (data) {
           toast.success("Tour successfully deleted");
-
           fetchTour();
         } else {
           toast.error("Failed to delete the Tour");
         }
       } catch (error) {
-        l;
         if (error.response && error.response.data) {
           const errorMessage = error.response.data.message;
           toast.error("Error in deleting the Tour: " + errorMessage);
@@ -64,6 +61,22 @@ const Tour = () => {
       }
     }
   };
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(tours.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = tours.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div className="todo">
@@ -83,23 +96,14 @@ const Tour = () => {
           <div className="gone">
             <div className="cellule">img</div>
             <div className="cellule">Destination</div>
-            <div className="cellule">Description</div>
             <div className="cellule">Duration</div>
             <div className="cellule">Groupsize</div>
-            <div className="cellule">Discount</div>
             <div className="cellule">Price</div>
-            <div className="cellule">Tourtype</div>
-            <div className="cellule">Departure</div>
-            <div className="cellule">Seats</div>
-            <div className="cellule">Frommonth</div>
-            <div className="cellule">Tomonth</div>
-            <div className="cellule">Departuretime</div>
-            <div className="cellule">Returntime</div>
             <div className="cellule">Action</div>
           </div>
         </div>
 
-        {tours.map((item, idx) => (
+        {currentItems.map((item, idx) => (
           <div key={idx} className="gone">
             <div>
               <img
@@ -109,35 +113,48 @@ const Tour = () => {
               />
             </div>
             <div className="cellule">{item.destination}</div>
-            <div className="cellule">{item.Description}</div>
             <div className="cellule">{item.Duration}</div>
             <div className="cellule">{item.GroupSize}</div>
-            <div className="cellule">{item.Discount}</div>
             <div className="cellule">{item.Price}</div>
-            <div className="cellule">{item.Tourtype}</div>
-            <div className="cellule">{item.Departure}</div>
-            <div className="cellule">{item.Seats}</div>
-
-            <div className="cellule">{item.fromMonth}</div>
-            <div className="cellule">{item.toMonth}</div>
-            <div className="cellule">{item.departureTime}</div>
-            <div className="cellule">{item.returntTime}</div>
-            <div className="cellule">
-              <div className="action-icons">
-                <BsFillTrashFill
-                  onClick={() => deleteTour(item._id)}
-                  style={{ color: "red", cursor: "pointer" }}
-                />
-                <Link
-                  style={{ color: "black" }}
-                  to={`/dashboard/Edittour/${item._id}`}
-                >
-                  <BsFillPencilFill />
-                </Link>
-              </div>
+            <div className="action-icons">
+              <BsFillTrashFill
+                onClick={() => deleteTour(item._id)}
+                style={{ color: "red", cursor: "pointer" }}
+              />
+              <Link
+                style={{ color: "black" }}
+                to={`/dashboard/Edittour/${item._id}`}
+              >
+                <BsFillPencilFill />
+              </Link>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="pagination-tour">
+        <span className="disabled" onClick={handlePrevPage} disabled={currentPage === 1}>
+          Previous
+        </span>
+        {Array.from(
+          { length: Math.ceil(tours.length / itemsPerPage) },
+          (_, index) => (
+
+            <span classNam="one"
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={currentPage === index + 1 ? "active" : ""}
+            >
+              {index + 1}
+            </span>
+          )
+        )}
+        <span className="last-one"
+          onClick={handleNextPage}
+          disabled={currentPage === Math.ceil(tours.length / itemsPerPage)}
+        >
+          Next
+        </span>
       </div>
     </div>
   );

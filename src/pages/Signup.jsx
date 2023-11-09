@@ -11,12 +11,11 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const [location, setLoCation] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(""); // Added phoneNumber state
+  const [phoneNumber, setPhoneNumber] = useState(""); 
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // State to store user information
   const [userInformation, setUserInformation] = useState(null);
 
   const handleSignup = (e) => {
@@ -34,7 +33,7 @@ const Signup = () => {
         password: password,
         fullname: fullname,
         location: location,
-        phoneNumber: phoneNumber, // Include phoneNumber in the data
+        phoneNumber: phoneNumber, 
       },
     })
       .then((response) => {
@@ -43,7 +42,7 @@ const Signup = () => {
         navigate("/Homepage")
         setIsLoading(false);
 
-        // Save user information in state
+   
         setUserInformation({
           email: email,
           fullname: fullname,
@@ -51,7 +50,7 @@ const Signup = () => {
           phoneNumber: phoneNumber,
         });
 
-        // Log registered email, password, fullname, location, phoneNumber, and role to the console
+       
         console.log("Registered Email:", email);
         console.log("Registered Password:", password);
         console.log("Fullname:", fullname);
@@ -97,7 +96,7 @@ const Signup = () => {
             </div>
             <div className="form-group">
               <label>Location</label>{" "}
-              {/* Corrected the label text to "Location" */}
+           
               <input
                 type="text"
                 value={location}
