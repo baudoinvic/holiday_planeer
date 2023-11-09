@@ -1,6 +1,7 @@
 import React from 'react'
+import { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
-
+import axios from "axios";
 
 import {
   Chart as ChartJS,
@@ -16,6 +17,7 @@ import {
 
 
 import { Bar } from "react-chartjs-2";
+
 
 ChartJS.register(
   CategoryScale,
@@ -74,8 +76,95 @@ const data = {
    
   ChartJS.register(ArcElement, Tooltip, Legend);
 
-   
+   /*fetching tours*/
 
+   const [tours, setTours] = useState([]);
+
+   const fetchTour = () => {
+     let token = localStorage.getItem("token");
+     console.log(token);
+     axios({
+       url: "https://holiday-planner-4lnj.onrender.com/api/v1/tour/",
+       method: "GET",
+       headers: {
+         Authorization: `Bearer ${token}`,
+       },
+     })
+       .then((response) => {
+         console.log(response.data);
+         setTours(response.data);
+         navigate("/dashboard/tour");
+         toast.success(response.data.message);
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+   };
+
+   useEffect(() => {
+     fetchTour();
+   }, []);
+
+
+   /*fetching users*/
+
+       const [users, setUsers] = useState([]);
+
+       const fetchUsers = () => {
+         let token = localStorage.getItem("token");
+         console.log(token);
+         axios({
+           url: "https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/",
+           method: "GET",
+           headers: {
+             Authorization: `Bearer ${token}`,
+           },
+         })
+           .then((response) => {
+             console.log(response.data);
+             setUsers(response.data);
+             toast.success(response.data.message);
+           })
+           .catch((error) => {
+             console.log(error);
+           });
+       };
+
+       useEffect(() => {
+         fetchUsers();
+       }, []);
+
+      /*fetch booking*/
+
+       const [tourDetails, setTourDetails] = useState(null);
+      const [book, setBook] = useState([]);
+
+      //  const [Editbooking, setEditbooking] = useState();
+      
+
+       const fetchTourDetails = () => {
+         let token = localStorage.getItem("token");
+         console.log(token);
+         axios({
+           url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/view/",
+           method: "GET",
+           headers: {
+             Authorization: `Bearer ${token}`,
+           },
+         })
+           .then((response) => {
+             console.log(response.data);
+             setBook(response.data);
+             toast.success(response.data.message);
+           })
+           .catch((error) => {
+             console.log(error);
+           });
+       };
+
+       useEffect(() => {
+         fetchTourDetails();
+       }, []);
 
   return (
     <div className="dash">
@@ -83,10 +172,11 @@ const data = {
       <ul class="breadcrumbs"></ul>
       <div class="info-data">
         <div style={{ backgroundColor: "#c29d59" }} class="card">
+          
           <div class="head">
             <div>
               <h2>Tours</h2>
-              <h2>200</h2>
+              <h2>{tours.length}</h2>
             </div>
             <i class="bx bx-trending-down icon down"></i>
           </div>
@@ -97,7 +187,7 @@ const data = {
           <div class="head">
             <div>
               <h2>Bookings</h2>
-              <h2>2200</h2>
+              <h2>{book.length}</h2>
             </div>
             <i class="bx bx-trending-down icon down"></i>
           </div>
@@ -107,7 +197,7 @@ const data = {
           <div class="head">
             <div>
               <h2>Users</h2>
-              <h2>100</h2>
+              <h2>{users.length}</h2>
             </div>
             <i class="bx bx-trending-up icon"></i>
           </div>

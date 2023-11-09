@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+
 import axios from "axios";
 import './Dashboard.css'
 import { FaSignOutAlt } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate,Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaUsersCog, FaChartBar } from "react-icons/fa";
 import { PiAirplaneTiltFill } from "react-icons/pi";
-
- 
-
 
 
 import {
@@ -25,8 +23,24 @@ import {
 
 const Dashboard = () => {
   
-
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const userString = localStorage.getItem("user");
+  const user = JSON.parse(userString);
+
+   useEffect(()=> {
+    console.log(user);
+    console.log(token);
+    if(token && user.role=="user"){
+      navigate("/");
+    }else if(!token){
+      navigate("/login");
+    }
+   }
+   )
+
+
+
   return (
     <div className="dashboard">
       <div class="sidebar">
