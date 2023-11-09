@@ -22,3 +22,33 @@
     padding: 45px;
   
  }
+
+   /*---------paginaton--------*/
+
+
+ .pagination {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 20px;
+}
+
+.paging {
+  padding: 8px 35px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: rgb(194, 157, 89);
+  color: white;
+}
+
+.paging-right {
+  padding: 8px 35px;
+  margin-left: 10px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+ 
+}
+

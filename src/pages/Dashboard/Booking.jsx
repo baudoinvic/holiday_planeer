@@ -1,72 +1,71 @@
-import React, { useState, useEffect } from "react";
-import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-import { Link } from "react-router-dom"; 
-import axios from "axios";
-import './Booking.css'
+  import React, { useState, useEffect } from "react";
+  import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
+  import { Link } from "react-router-dom";
+  import axios from "axios";
+  import "./Booking.css";
+  import { ToastContainer, toast } from "react-toastify";
 
+  const Booking = () => {
+    const [tourDetails, setTourDetails] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(5); 
 
-import { ToastContainer, toast } from "react-toastify"; 
+    useEffect(() => {
+      fetchTourDetails();
+    }, []);
 
-
-const Booking = () => {
-  const [tourDetails, setTourDetails] = useState(null);
-  const [book, setBook] = useState();
-  const [Editbooking,setEditbooking] = useState();
-
-  const fetchTourDetails = () => {
-    let token = localStorage.getItem("token");
-    console.log(token);
-    axios({
-      url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/view/",
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        console.log(response.data);
-        setTourDetails(response.data); 
-        toast.success(response.data.message);
+    const fetchTourDetails = () => {
+      let token = localStorage.getItem("token");
+      axios({
+        url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/view/",
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+        .then((response) => {
+          console.log(response.data);
+          setTourDetails(response.data);
+          toast.success(response.data.message);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
 
-  useEffect(() => {
-    fetchTourDetails();
-  }, []);
-
-  // Define the handledelete tour function if you intend to use it.
-    
-      const handleDeleteBooking = (id) => {
-        if (window.confirm("Are you sure you want to delete?")) {
-          let token = localStorage.getItem("token");
-          axios({
-            url: `https://holiday-planner-4lnj.onrender.com/api/v1/booking/delete/${id}`,
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+    const handleDeleteBooking = (id) => {
+      if (window.confirm("Are you sure you want to delete?")) {
+        let token = localStorage.getItem("token");
+        axios({
+          url: `https://holiday-planner-4lnj.onrender.com/api/v1/booking/delete/${id}`,
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            toast.success("Booking deleted successfully");
+            console.log(response, "response");
           })
-            .then((response) => {
-              toast.success("Booking deleted successfully");
-              console.log(response, "response");
-            })
-            .catch((error) => {
-              toast.error(error.response.data.message);
-              console.log(error, "Error");
-            });
-        }
-      };
+          .catch((error) => {
+            toast.error(error.response.data.message);
+            console.log(error, "Error");
+          });
+      }
+    };
 
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = tourDetails.slice(indexOfFirstItem, indexOfLastItem);
 
+    const paginate = (pageNumber) => {
+      setCurrentPage(pageNumber);
+    };
 
-  return (
-    <div className="booking">
-      <div className="here-book">
-        <h1 className="title">Bookings</h1>
-
+    return (
+      <div className="booking">
+        <div className="here-book">
+          <h1 className="title">Bookings</h1>
           <div className="now-fill">
             <div className="ahead">
               <div className="books">image</div>
@@ -78,10 +77,8 @@ const Booking = () => {
               <div className="books">Action</div>
             </div>
           </div>
-       
 
-        {tourDetails &&
-          tourDetails.map((item, idx) => (
+          {currentItems.map((item, idx) => (
             <div key={idx} className="user-row">
               <div>
                 <img
@@ -101,7 +98,6 @@ const Booking = () => {
                     style={{ cursor: "pointer", color: "red" }}
                     onClick={() => handleDeleteBooking(item._id)}
                   />
-
                   <Link to={`/dashboard/Editbooking/${item._id}`}>
                     <BsFillPencilFill style={{ color: "black" }} />
                   </Link>
@@ -109,10 +105,27 @@ const Booking = () => {
               </div>
             </div>
           ))}
+          <div className="pagination">
+            <span
+              className="paging"
+              onClick={() => paginate(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </span>
+         
+            <span
+              className="paging-right"
+              onClick={() => paginate(currentPage + 1)}
+              disabled={currentItems.length < itemsPerPage}
+            >
+              Next
+            </span>
+          </div>
+        </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
-    </div>
-  );
-};
+    );
+  };
 
-export default Booking;
+  export default Booking;
