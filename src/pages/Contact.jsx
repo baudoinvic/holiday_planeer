@@ -23,21 +23,21 @@ const Contact = () => {
         </div>
       </div>
 
-      
       <div className="ct-center">
         <div className="fside">
           <form typeof="submit">
             <div className="naem">
               <BsFillPersonFill className="fname" />
               <input type="name" placeholder="Full Name*" />
-              {/* <MdEmail className="mail" /> */}
+              <MdEmail className="mail" />
               <input type="email" placeholder="Email*" />
             </div>
             <div className="tetx">
               <AiFillPhone className="phn" />
               <input type="tel" placeholder="Telephone*" />
-              {/* <FaBook className="srv" /> */}
-              <input type="text" placeholder="Service*" />
+              <FaBook className="srv" />
+              <input type="tel" placeholder="Service*" />
+              {/* <input type="text" placeholder="Service*" /> */}
             </div>
             <textarea type="text" placeholder="Message" className="msg" />
             <button>SUBMIT</button>
@@ -120,10 +120,6 @@ const Contact = () => {
         </div>
       </div>
     </div>
-        
-
-
-    
   );
 }
 

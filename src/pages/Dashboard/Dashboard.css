@@ -129,40 +129,17 @@ main .data .content-data {
 
 
 
-  @media (max-width: 768px) {
- 
-  .dashboard{
-    display:block;
-    flex-direction: column;
-  }
-  
-   .sidebar{
-    /* display: none; */
-    /* background-color: red; */
-    width: 40%!important;
-    height: 10px;
-    
-   }
-
+ @media (max-width: 768px) {
   .info-data {
-    flex-direction: column;
-  }
-
-  .main .card .head {
-    padding: 10px;
-      display: block;
+    flex-direction: column; 
   }
 
   .card {
-    margin-bottom: 20px;
+    width: 100%; 
   }
 
-  .card:not(:last-child) {
-    margin-bottom: 30px; 
+  .rightChartContainer,
+  .leftChartContainer {
+    width: 100%; 
   }
-  .design-chart{
-    flex-direction: column;
-    width: 500px;
-  }
- 
 }

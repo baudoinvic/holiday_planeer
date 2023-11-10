@@ -44,15 +44,15 @@
   margin-left: auto;
 }
 
-@media (min-width: 768px) {
-  .image-item-medium {
-    flex: 0 0 100%;
-    background-color: red;
-  }
-}
 
-@media (min-width: 1024px) {
+
+
+  @media (max-width: 768px) {
+  .images-container {
+    flex-direction: column;
+  }
+
   .image-item {
-    flex: 0 0 30%;
+    width: 100%; 
   }
 }
