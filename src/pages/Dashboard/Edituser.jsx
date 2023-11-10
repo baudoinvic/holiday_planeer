@@ -11,10 +11,12 @@ const Edituser = () => {
       const params = useParams();
       let userId = params.id;
 
+
+    const [isLoading,setIsLoading] = useState(false)
      const [fullName, setFullname] = useState("");
      const [email, setEmail] = useState("");
      const [role, setRole] = useState("");
-      const [initialTour, setInitialTour] = useState({});
+     const [initialTour, setInitialTour] = useState({});
 
       const fetchUsers = () => {
         
@@ -45,6 +47,7 @@ const Edituser = () => {
       const handleForm = (e) => {
         e.preventDefault();
         console.log("Ru");
+        setIsLoading(true)
 
         let token = localStorage.getItem("token");
         console.log("token", token)
@@ -60,7 +63,7 @@ const Edituser = () => {
         // formData.append("email", email);
         // formData.append("role", role);
 
-        axios({ 
+        axios({
           method: "PUT",
           url: `https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/update/${userId}`,
           data: data,
@@ -76,9 +79,14 @@ const Edituser = () => {
               navigate("/dashboard/Users");
             }, 3000);
           })
+
           .catch((error) => {
             console.log(error);
             toast.error(error.message);
+          })
+
+          .finally(() => {
+            setIsLoading(false);
           });
       };
 
@@ -103,7 +111,6 @@ const Edituser = () => {
             placeholder="update email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-           
           />
           <label htmlFor="role">Role</label>
           <input
@@ -116,6 +123,7 @@ const Edituser = () => {
           <div className="ready">
             <div className="accept">
               <button onClick={handleForm}>Update user</button>
+              {isLoading && <div className="loader-spinner">Loading...</div>}
             </div>
             <div className="Cancel">
               <button>Cancel</button>

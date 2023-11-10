@@ -10,6 +10,8 @@ const Editbooking = () => {
      const navigate = useNavigate();
      const params = useParams();
      let tourId = params.id;
+
+     const [isLoading, setIsLoading] = useState(false);
      const [fullName, setFullName] = useState("");
      const [bookEmail, setBookEmail] = useState("");
      const [bookPhone, setBookPhone] = useState("");
@@ -41,6 +43,8 @@ const Editbooking = () => {
      }, []);
      const handleForm = (e) => {
        e.preventDefault();
+       setIsLoading(true)
+
 
        const data = {
          tourId: tourId,
@@ -68,11 +72,15 @@ const Editbooking = () => {
              navigate(`/Dashboard/Booking`);
            }, 3000);
          })
+       
          .catch((error) => {
            console.log(error);
            toast.error(error.message);
-         
-         });
+         })
+
+           .finally(() => {
+            setIsLoading(false);
+          });
      };
 
   return (
@@ -128,6 +136,7 @@ const Editbooking = () => {
           </div>
 
           <button onClick={handleForm}>Updating Booking</button>
+          {isLoading && <div className="loader-spinner">Loading...</div>}
         </form>
       </div>
     </div>

@@ -86,7 +86,8 @@
                 </div>
 
                 <button className="submit">Login</button>
-                {isLoading && <div className="loader">Loading...</div>}
+                {/* {isLoading && <div className="loader">Loading...</div>} */}
+                {isLoading && <div className="loader-spinner">Loading...</div>}
 
                 <p className="signup-link">
                   Don't have an account? <Link to="/Signup">Sign up here</Link>

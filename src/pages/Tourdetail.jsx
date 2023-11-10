@@ -24,6 +24,7 @@ import { Title } from 'chart.js';
 
      const Tourdetail = () => {
 
+       const [isLoading, setIsLoading] = useState(false);
       const [bookFormName, setBookFormName] = useState();
       const [bookFormEmail, setBookFormEmail] = useState();
       const [bookFormPhone, setBookFormPhone] = useState();
@@ -33,45 +34,48 @@ import { Title } from 'chart.js';
 
       const params = useParams();
       let tourId = params.id;
-      const handlesubmit =  (e) => {
-        e.preventDefault();
-       
-        let data = new FormData();
-        data.append("tourID", tourId);
-        data.append("fullname", bookFormName);
-        data.append("email", bookFormEmail);
-        data.append("phone", bookFormPhone);
-        data.append("date", bookFormDate);
-        data.append("numberOfTickets", bookFormTicketsNumber);
 
-       
+        const handlesubmit = (e) => {
+          setIsLoading(true);
+          e.preventDefault();
 
+          let data = new FormData();
+          data.append("tourID", tourId);
+          data.append("fullname", bookFormName);
+          data.append("email", bookFormEmail);
+          data.append("phone", bookFormPhone);
+          data.append("date", bookFormDate);
+          data.append("numberOfTickets", bookFormTicketsNumber);
 
-        let token = localStorage.getItem("token");
-        console.log(token);
-        axios({
-          method: "POST",
-          url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
-          data: data,
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        })
-          .then((response) => {
-            console.log(response);
-            toast.success("Thanks for booking");
-            
-            setTimeout(() => {
-              navigate("/");
-            }, 2000);
-            console.log(response)
+          let token = localStorage.getItem("token");
+          console.log(token);
+          axios({
+            method: "POST",
+            url: "https://holiday-planner-4lnj.onrender.com/api/v1/booking/create",
+            data: data,
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
           })
-          .catch((error) => {
-            console.log(error);
-            toast.error(error.message);
-          });
-      };
+            .then((response) => {
+              console.log(response);
+              toast.success("Thanks for booking");
+
+              setTimeout(() => {
+                navigate("/");
+              }, 2000);
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+              toast.error(error.message);
+            })
+            .finally(() => {
+              setIsLoading(false);
+            });
+        };
+
 
        /*-------------------------------------------------------------------------------------------------------*/
 
@@ -128,6 +132,9 @@ import { Title } from 'chart.js';
         .catch((error) => {
           console.log(error);
         });
+
+        
+         
     };
     useEffect(() => {
       fetchTour();
@@ -136,9 +143,9 @@ import { Title } from 'chart.js';
 
   return (
     <div className="tour-details">
-      <div className="tour-detail-image"
-      style={{ backgroundImage: `url(${destinationImage})`}}
-
+      <div
+        className="tour-detail-image"
+        style={{ backgroundImage: `url(${destinationImage})` }}
       >
         {/* <img src={backdropImage} alt="" /> */}
 
@@ -203,23 +210,23 @@ import { Title } from 'chart.js';
 
           <div className="tour-description">
             <p style={{ color: "" }}>
-              {Description}
-              I should be incapable of drawing a single stroke at the present
+              {Description}I should be incapable of drawing a single stroke at
+              the present moment; and yet I feel that I never was a greater
+              artist than now. When, while the lovely valley teems with vapour
+              around me, and the meridian sun strikes the upper surface of the
+              impenetrable foliage of my trees, and but a few stray gleams. I
+              should be incapable of drawing a single stroke at the present
               moment; and yet I feel that I never was a greater artist than now.
               When, while the lovely valley teems with vapour around me, and the
               meridian sun strikes the upper surface of the impenetrable foliage
-              of my trees, and but a few stray gleams. I should be incapable of
-              drawing a single stroke at the present moment; and yet I feel that
-              I never was a greater artist than now. When, while the lovely
-              valley teems with vapour around me, and the meridian sun strikes
-              the upper surface of the impenetrable foliage of my trees, and but
-              a few stray gleams steal into the inner sanctuary, I throw myself
-              down among the tall grass by the trickling stream; and, as I lie
-              close to the earth, a thousand unknown plants are noticed by me:
-              when I hear the buzz of the little world among the stalks, and
-              grow familiar with the countless indescribable forms of the
-              insects and flies, then I feel the presence of the Almighty, who
-              formed us in his own image, and the breath
+              of my trees, and but a few stray gleams steal into the inner
+              sanctuary, I throw myself down among the tall grass by the
+              trickling stream; and, as I lie close to the earth, a thousand
+              unknown plants are noticed by me: when I hear the buzz of the
+              little world among the stalks, and grow familiar with the
+              countless indescribable forms of the insects and flies, then I
+              feel the presence of the Almighty, who formed us in his own image,
+              and the breath
             </p>
             <div className="video">
               <video controls width="640" height="360">
@@ -263,15 +270,14 @@ import { Title } from 'chart.js';
         </div>
 
         <div className="tour-rigt">
-          <form  style={{ width: "300px" }} action="" className="right-form">
+          <form style={{ width: "300px" }} action="" className="right-form">
             <h2 className="form-title">FIND YOUR TOUR</h2>
 
             <div className="form-group">
               <input
-                type="text"
+                type="name"
                 id="fullname"
-                placeholder="Enter your full name"
-             
+                placeholder="Enter your fullname"
                 onChange={(e) => {
                   setBookFormName(e.target.value);
                 }}
@@ -283,20 +289,17 @@ import { Title } from 'chart.js';
                 type="email"
                 id="email"
                 placeholder="Enter your email"
-               
                 onChange={(e) => {
                   setBookFormEmail(e.target.value);
                 }}
               />
             </div>
 
-
             <div className="form-group">
               <input
                 type="tel"
                 id="phone"
                 placeholder="Enter your phone number"
-            
                 onChange={(e) => {
                   setBookFormPhone(e.target.value);
                 }}
@@ -306,7 +309,6 @@ import { Title } from 'chart.js';
             <div className="form-group">
               <input
                 type="date"
-               
                 onChange={(e) => {
                   setBookFormDate(e.target.value);
                 }}
@@ -317,7 +319,6 @@ import { Title } from 'chart.js';
               <input
                 type="number"
                 placeholder="number of ticket"
-               
                 onChange={(e) => {
                   setBookFormTicketsNumber(parseInt(e.target.value));
                 }}
@@ -329,17 +330,17 @@ import { Title } from 'chart.js';
                 style={{ height: "80px", width: "300px" }}
                 id="message"
                 placeholder="Your message"
-               
               ></textarea>
             </div>
 
-            <button onClick={handlesubmit}
-            
+            <button
+              onClick={handlesubmit}
               type="submit"
               className="submit-button"
             >
-              Book Now
+              Book now
             </button>
+            {isLoading && <div className="loader-spinner">Loading...</div>}
           </form>
 
           <div style={{ width: "300px" }} className="quest-topp">

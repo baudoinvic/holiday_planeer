@@ -56,24 +56,6 @@ const labels = [
   "Nov",
   "Dec",
 ];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "number of booking",
-      data: [20, 43, 10, 54, 8, 23, 40, 23, 56, 87, 44, 10],
-      backgroundColor: "#c29d59",
-    },
-    {
-      label: "number of booking",
-      data: [24, 26, 16, 10, 20, 40, 46, 49, 72, 34, 54, 60, 65, 70, 72],
-      backgroundColor: "skyblue",
-    },
-  ],
-
-};
-
    
   ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -165,6 +147,57 @@ const data = {
        useEffect(() => {
          fetchTourDetails();
        }, []);
+
+
+
+      /*fetch chart*/
+
+
+         const [load, setLoad] = useState(false);
+         const [charts, setCharts] = useState([]);
+
+         const fetchChart = () => {
+           setLoad(true);
+           axios({
+             method: "GET",
+             url: "https://holiday-planner-4lnj.onrender.com/api/v1/count?year=2023",
+             headers: {
+               "Content-Type": "application/json",
+             },
+           })
+             .then((response) => {
+               console.log(response);
+               setTimeout(() => {
+                 setCharts(response.data);
+                 setLoad(false);
+               }, 5000);
+             })
+             .catch((error) => {
+               console.log(error);
+               setLoad(false);
+             });
+         };
+
+         useEffect(() => {
+           fetchChart();
+         }, []);
+
+         const data = {
+           labels,
+           datasets: [
+             {
+               label: "Number of Booking - Dataset 1",
+               data: charts.map((item) => item.count),
+               backgroundColor: "#c29d59",
+             },
+             {
+               label: "Number of Booking - Dataset 2",
+               data: charts.map((item) => item.count),
+               backgroundColor: "skyblue",
+             },
+           ],
+         };
+
 
   return (
     <div className="dash">
