@@ -26,6 +26,7 @@ import Edittour from "./pages/Dashboard/Edittour";
 import Edituser from "./pages/Dashboard/Edituser";
 import Booking from "./pages/Dashboard/Booking";
 import Editbooking from "./pages/Dashboard/Editbooking";
+import Chat from "./pages/Dashboard/Chat";
 
 
 
@@ -76,6 +77,7 @@ const App = () => {
             <Route path="Booking" element={<Booking />} />
             <Route path="Editbooking/:id" element={<Editbooking/>} />
             <Route path="Edittour/:id" element={<Edittour />} />
+            <Route path="Chat" element={<Chat/>} />
             {/* <Route path="Editbooking" element={<Editbooking/>} /> */}
           </Route>
         </Routes>

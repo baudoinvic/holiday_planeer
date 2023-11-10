@@ -17,6 +17,7 @@ import {
 
 
 import { Bar } from "react-chartjs-2";
+import Chat from './Dashboard/Chat';
 
 
 ChartJS.register(
@@ -141,7 +142,6 @@ const data = {
 
       //  const [Editbooking, setEditbooking] = useState();
       
-
        const fetchTourDetails = () => {
          let token = localStorage.getItem("token");
          console.log(token);
@@ -213,6 +213,7 @@ const data = {
             </div>
 
       </div>
+      <Chat />
     </div>
   );
 }
